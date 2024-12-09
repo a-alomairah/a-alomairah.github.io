@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code on Abdulrahman Alomairah</title>
-    <link>https://example.com/categories/code/</link>
+    <link>https://a-alomairah.github.io/categories/code/</link>
     <description>Recent content in Code on Abdulrahman Alomairah</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 19 Jul 2023 23:46:17 +0300</lastBuildDate>
-    <atom:link href="https://example.com/categories/code/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://a-alomairah.github.io/categories/code/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Audio over GIFs</title>
-      <link>https://example.com/blog/twtaudio/</link>
+      <link>https://a-alomairah.github.io/blog/twtaudio/</link>
       <pubDate>Wed, 19 Jul 2023 23:46:17 +0300</pubDate>
-      <guid>https://example.com/blog/twtaudio/</guid>
+      <guid>https://a-alomairah.github.io/blog/twtaudio/</guid>
       <description>&lt;p&gt;For multiple reasons, I decided to code my own Bash script that records your microphone and then it plays it over a GIF loop for the entire duration of the audio. This is to be able to send it as a &lt;code&gt;.mp4&lt;/code&gt; video.&#xA;The reasons behind that is that as an Andriod user, Apps like Twitter (X) don&amp;rsquo;t implement features to Andriod users like the Audio tweet. Yes! This was my main motivation for this code. Furthermore, sometimes Iphone users are unable to play &lt;em&gt;uncommon?&lt;/em&gt; extensions like &lt;code&gt;.webm&lt;/code&gt;,&lt;code&gt;.mkv&lt;/code&gt;,&lt;code&gt;.mov&lt;/code&gt;,&lt;code&gt;.wav&lt;/code&gt;. Thus, I decided to just share files that have &lt;em&gt;common&lt;/em&gt; extensions like &lt;code&gt;.mp3&lt;/code&gt;,&lt;code&gt;.mp4&lt;/code&gt; to my Iphone friends instead. It&amp;rsquo;s a shame that they still use the Apple Eco-system&amp;hellip;&#xA;Anyhow, Here&amp;rsquo;s the code&lt;/p&gt;</description>
     </item>
   </channel>

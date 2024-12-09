@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Abdulrahman&#39; Website on Abdulrahman Alomairah</title>
-    <link>https://example.com/</link>
+    <link>https://a-alomairah.github.io/</link>
     <description>Recent content in Abdulrahman&#39; Website on Abdulrahman Alomairah</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 08 Sep 2023 22:22:41 +0300</lastBuildDate>
-    <atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://a-alomairah.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My Journey to eJPTv2 Certification</title>
-      <link>https://example.com/blog/ejptv2/</link>
+      <link>https://a-alomairah.github.io/blog/ejptv2/</link>
       <pubDate>Fri, 08 Sep 2023 22:22:41 +0300</pubDate>
-      <guid>https://example.com/blog/ejptv2/</guid>
+      <guid>https://a-alomairah.github.io/blog/ejptv2/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/81589719&#34; alt=&#34;eJPTv2 Certification&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve always had a fascination with penetration testing, information gathering, and enumeration. There&amp;rsquo;s something thrilling about delving into the intricacies of a system, discovering its vulnerabilities, and ultimately strengthening its defenses. But for me, it&amp;rsquo;s more than just a passion; it&amp;rsquo;s a way of life.&lt;/p&gt;&#xA;&lt;h2 id=&#34;embracing-control-and-privacy&#34;&gt;Embracing Control and Privacy&lt;/h2&gt;&#xA;&lt;p&gt;One of the driving forces behind my interest in penetration testing is my love for self-hosting personal services. I&amp;rsquo;m a firm believer in having control over my data and privacy. Whether it&amp;rsquo;s my email server, cloud storage, or even my personal website, I prefer to manage these services myself. It allows me to ensure that my data remains mine and is not at the mercy of third-party providers. &lt;em&gt;Most of the time&amp;hellip;&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>STC Incident Response Virtual Work Experiance</title>
-      <link>https://example.com/blog/stc_incidentresponse/</link>
+      <link>https://a-alomairah.github.io/blog/stc_incidentresponse/</link>
       <pubDate>Mon, 28 Aug 2023 11:44:40 +0300</pubDate>
-      <guid>https://example.com/blog/stc_incidentresponse/</guid>
+      <guid>https://a-alomairah.github.io/blog/stc_incidentresponse/</guid>
       <description>&lt;h2 id=&#34;certificate-of-completion-virtual-work-experience-in-cybersecurity-incident-response-analysis&#34;&gt;Certificate of Completion: Virtual Work Experience in Cybersecurity Incident Response Analysis&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;m thrilled to share that I&amp;rsquo;ve successfully completed a Virtual Work Experience program focused on &lt;strong&gt;Cybersecurity Incident Response Analysis&lt;/strong&gt;. This immersive program provided me with invaluable insights into the world of cybersecurity and equipped me with practical skills to effectively respond to potential threats.&lt;/p&gt;&#xA;&lt;h3 id=&#34;program-highlights&#34;&gt;Program Highlights:&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Hands-on Experience:&lt;/strong&gt; Throughout the program, I had the opportunity to work with real-world data and scenarios. This allowed me to gain practical experience and a deeper understanding of cyber threats and vulnerabilities.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Power of Preparedness: Why a UPS is a Lifesaver for Home Servers</title>
-      <link>https://example.com/blog/ups/</link>
+      <link>https://a-alomairah.github.io/blog/ups/</link>
       <pubDate>Tue, 22 Aug 2023 07:56:47 +0300</pubDate>
-      <guid>https://example.com/blog/ups/</guid>
+      <guid>https://a-alomairah.github.io/blog/ups/</guid>
       <description>&lt;h2 id=&#34;the-power-of-preparedness-why-a-ups-is-a-lifesaver-for-home-servers&#34;&gt;The Power of Preparedness: Why a UPS is a Lifesaver for Home Servers&lt;/h2&gt;&#xA;&lt;p&gt;&lt;em&gt;Lessons from a Power Outage Misadventure&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;We&amp;rsquo;ve all heard the saying, &lt;em&gt;&amp;ldquo;With great power comes great responsibility.&amp;rdquo;&lt;/em&gt; But what about, &lt;em&gt;&amp;ldquo;With great server hosting comes great problems&amp;rdquo;?&lt;/em&gt; As home server enthusiasts, we embark on a journey filled with excitement and challenges, seeking the thrill of managing our own services. However, yesterday&amp;rsquo;s power outage served as a poignant reminder that hosting our own services also means hosting our own problems. Enter the unsung hero of the day: the Uninterruptible Power Supply (UPS).&lt;/p&gt;</description>
     </item>
     <item>
       <title>NixOS: Revolutionizing Linux through Reproducibility and Unbreakable Configuration</title>
-      <link>https://example.com/blog/nixos/</link>
+      <link>https://a-alomairah.github.io/blog/nixos/</link>
       <pubDate>Sun, 20 Aug 2023 00:51:04 +0300</pubDate>
-      <guid>https://example.com/blog/nixos/</guid>
+      <guid>https://a-alomairah.github.io/blog/nixos/</guid>
       <description>&lt;p&gt;In the vast realm of Linux distributions, NixOS emerges as a game-changer, defying conventional practices with its novel approach to system configuration and package management. It champions declarative configuration, ensuring atomic upgrades, and employs content-addressable package management for unparalleled reproducibility and system integrity.&lt;/p&gt;&#xA;&lt;h3 id=&#34;declarative-configuration-for-unbreakable-systems&#34;&gt;Declarative Configuration for Unbreakable Systems&lt;/h3&gt;&#xA;&lt;p&gt;At the core of NixOS lies the concept of declarative system configuration. This paradigm shift empowers users to define their system&amp;rsquo;s desired state using a single configuration file. This file encapsulates everything from software packages to network settings, all expressed in a functional language. This approach guarantees that changes are reversible, transparent, and free from interference with the current system state. This design fosters system resilience, enabling rapid recovery from issues and uniform behavior across various installations.&lt;/p&gt;</description>
     </item>
     <item>
       <title>My First CTF Style LAB</title>
-      <link>https://example.com/blog/my-first-ctf-style-lab/</link>
+      <link>https://a-alomairah.github.io/blog/my-first-ctf-style-lab/</link>
       <pubDate>Mon, 24 Jul 2023 21:09:08 +0300</pubDate>
-      <guid>https://example.com/blog/my-first-ctf-style-lab/</guid>
-      <description>&lt;p&gt;On 10:09 PM the 24th of July 2023. I was solving a LAB related to my Penetration Testing Student (PTS) course. After exploiting a vulnerablitiy in a windows machine, I have found my first &lt;code&gt;flag.txt&lt;/code&gt; file in a simulated environment. It made me happy. From that point onwards, I think the field of Cybersecurity might be really interesting to me.&#xA;&lt;img src=&#34;https://example.com/website/images/first_flag.png&#34; alt=&#34;My First Flag&#34;&gt;&lt;/p&gt;</description>
+      <guid>https://a-alomairah.github.io/blog/my-first-ctf-style-lab/</guid>
+      <description>&lt;p&gt;On 10:09 PM the 24th of July 2023. I was solving a LAB related to my Penetration Testing Student (PTS) course. After exploiting a vulnerablitiy in a windows machine, I have found my first &lt;code&gt;flag.txt&lt;/code&gt; file in a simulated environment. It made me happy. From that point onwards, I think the field of Cybersecurity might be really interesting to me.&#xA;&lt;img src=&#34;https://a-alomairah.github.io/website/images/first_flag.png&#34; alt=&#34;My First Flag&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Audio over GIFs</title>
-      <link>https://example.com/blog/twtaudio/</link>
+      <link>https://a-alomairah.github.io/blog/twtaudio/</link>
       <pubDate>Wed, 19 Jul 2023 23:46:17 +0300</pubDate>
-      <guid>https://example.com/blog/twtaudio/</guid>
+      <guid>https://a-alomairah.github.io/blog/twtaudio/</guid>
       <description>&lt;p&gt;For multiple reasons, I decided to code my own Bash script that records your microphone and then it plays it over a GIF loop for the entire duration of the audio. This is to be able to send it as a &lt;code&gt;.mp4&lt;/code&gt; video.&#xA;The reasons behind that is that as an Andriod user, Apps like Twitter (X) don&amp;rsquo;t implement features to Andriod users like the Audio tweet. Yes! This was my main motivation for this code. Furthermore, sometimes Iphone users are unable to play &lt;em&gt;uncommon?&lt;/em&gt; extensions like &lt;code&gt;.webm&lt;/code&gt;,&lt;code&gt;.mkv&lt;/code&gt;,&lt;code&gt;.mov&lt;/code&gt;,&lt;code&gt;.wav&lt;/code&gt;. Thus, I decided to just share files that have &lt;em&gt;common&lt;/em&gt; extensions like &lt;code&gt;.mp3&lt;/code&gt;,&lt;code&gt;.mp4&lt;/code&gt; to my Iphone friends instead. It&amp;rsquo;s a shame that they still use the Apple Eco-system&amp;hellip;&#xA;Anyhow, Here&amp;rsquo;s the code&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>About Me on Abdulrahman Alomairah</title>
-    <link>https://example.com/about/</link>
+    <link>https://a-alomairah.github.io/about/</link>
     <description>Recent content in About Me on Abdulrahman Alomairah</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://example.com/about/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://a-alomairah.github.io/about/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
