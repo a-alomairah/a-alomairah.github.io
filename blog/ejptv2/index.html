@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<style>
+    html {
+        height: 100vh;
+    }
+    body {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: 1fr auto;
+    }
+    .footer {
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+</style>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>Abdulrahman Alomairah</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" property="og:description" content="The website of Abdulrahman Alomairah, Senior Year Software Engineering Student at KFUPM">
+  <meta name="image" property="og:image" content="/">
+  <meta name="author" content="Abdulrahman Alomairah">
+  <meta name="generator" content="Hugo 0.139.0">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/css/uikit.min.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="/css/style.min.css" integrity="" media="screen">
+  
+  <link rel="stylesheet" href="/css/syntax.min.css" integrity="" media="screen">
+
+  <script src="https://cdn.jsdelivr.net/npm/mailgo@0.9.14/dist/mailgo.min.js" defer></script>
+
+  <!--Favicon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+</head>
+<body class="blog">
+    <div class="wrapper"><div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
+    <nav class="uk-navbar-container uk-margin" uk-navbar="mode: click;" style="padding-right: 3rem">
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav uk-visible@s">
+                
+                <li><a style="font-size: 18px; text-transform: none" href="/"> Home
+                        </a></li>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a style="font-size: 18px; text-transform: none" href="/about">About</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li class="uk-active"><a style="font-size: 18px; text-transform:none"
+                        href="/blog">Blog</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a style="font-size: 18px; text-transform: none" href="/portfolio">Portfolio</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a style="font-size: 18px; text-transform: none" href="/alomairah_resume.pdf">Resume</a></li>
+                
+                
+            </ul>
+
+            <a class="uk-navbar-toggle uk-hidden@s" uk-toggle="target: #sidenav" uk-navbar-toggle-icon href="#"></a>
+
+        </div>
+    </nav>
+</div>
+
+<div id="sidenav" uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+
+        <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+            
+            <li><a style="font-size: 18px" href="https://example.com/"> Home </a></li>
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a style="font-size: 18px" href="/about">About</a></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li class="uk-active"><a style="font-size: 18px" href="/blog">Blog</a></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a style="font-size: 18px" href="/portfolio">Portfolio</a></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a style="font-size: 18px" href="/alomairah_resume.pdf">Resume</a></li>
+            
+            
+        </ul>
+
+    </div>
+</div>
+
+
+
+
+<style>
+  p {
+    margin: 0
+  }
+
+  .people-wrap {
+    display: inline-flex;
+    margin-top: 10px;
+  }
+
+  .people-image {
+    display: block;
+    border-radius: 50%;
+     
+  }
+
+  .people {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .name {
+    margin: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000;
+    font-family: Roboto, sans-serif;
+    line-height: 1.2;
+    margin-top: 2rem;
+  }
+
+  .content img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:30px;
+  }
+
+  p { margin-bottom: 1em; }
+
+  body p:last-child { margin-bottom: 0em; }
+
+  img.skills{
+    height: 80px;
+  }
+
+  @media only screen and (min-width: 960px) {
+    .content img{max-width:60vw; max-height:60vh}
+
+  .content img{
+      max-width:60vw;
+      max-height:60vh
+  }
+  }
+  .content{
+      width: 90vw;
+      max-width: 1200px
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+</style>
+
+
+<section>
+  <div class="uk-container uk-margin-large-bottom uk-margin-medium-top">
+    <h1 class="uk-text-center uk-heading-medium">My Journey to eJPTv2 Certification</h1>
+    <p class="uk-text-center uk-text-lead"></p>
+    <p class="uk-text-center">Published on Sep 08, 2023</p>
+    <p class="uk-text-center">Reading time: 2 minutes.</p>
+    
+
+    <hr class="full-width">
+    
+
+    <div class="content">
+      <p><img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/81589719" alt="eJPTv2 Certification"></p>
+<p>I&rsquo;ve always had a fascination with penetration testing, information gathering, and enumeration. There&rsquo;s something thrilling about delving into the intricacies of a system, discovering its vulnerabilities, and ultimately strengthening its defenses. But for me, it&rsquo;s more than just a passion; it&rsquo;s a way of life.</p>
+<h2 id="embracing-control-and-privacy">Embracing Control and Privacy</h2>
+<p>One of the driving forces behind my interest in penetration testing is my love for self-hosting personal services. I&rsquo;m a firm believer in having control over my data and privacy. Whether it&rsquo;s my email server, cloud storage, or even my personal website, I prefer to manage these services myself. It allows me to ensure that my data remains mine and is not at the mercy of third-party providers. <em>Most of the time&hellip;</em></p>
+<p>But with great control comes great responsibility. To safeguard my self-hosted services and maintain their security, I needed to acquire the skills and knowledge necessary for penetration testing. It&rsquo;s not just about being on the defensive; it&rsquo;s about actively seeking out vulnerabilities and plugging them before they can be exploited.</p>
+<h2 id="the-joy-of-continuous-learning">The Joy of Continuous Learning</h2>
+<p>Penetration testing isn&rsquo;t a static field. It&rsquo;s dynamic and ever-evolving, just like the technology it seeks to protect. This constant state of flux is what makes it so exciting. You never know what new challenges will arise, what novel techniques will be developed, or what vulnerabilities will emerge. It&rsquo;s a field where you must be prepared to adapt and learn continuously.</p>
+<p>For me, this thirst for knowledge and the desire to keep my skills sharp is what keeps me engaged. I believe that in today&rsquo;s digital world, where threats can change in an instant, staying stagnant is not an option. By pursuing eJPTv2 certification, I&rsquo;ve taken a significant step towards staying at the forefront of penetration testing practices.</p>
+<h2 id="the-safcsp-bootcamp-opportunity">The SAFCSP Bootcamp Opportunity</h2>
+<p>When the opportunity to enroll in the Penetration Testing Student Bootcamp provided by SAFCSP presented itself, I couldn&rsquo;t resist. It was a chance to receive structured, comprehensive training in penetration testing, led by experts in the field. The bootcamp promised to equip me with the skills, tools, and techniques needed to excel in this demanding discipline.</p>
+<p>Through rigorous hands-on exercises, real-world simulations, and invaluable guidance from seasoned professionals, I gained the knowledge and experience necessary to tackle complex security challenges. The SAFCSP bootcamp not only expanded my understanding of penetration testing but also connected me with a community of like-minded individuals who share my passion for cybersecurity.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>My journey to eJPTv2 certification has been both challenging and rewarding. It&rsquo;s not just about acquiring a credential; it&rsquo;s about deepening my expertise, enhancing my ability to safeguard my self-hosted services, and contributing to a safer digital environment for all. The thrill of penetration testing, the pursuit of knowledge, and the desire to protect what matters most have fueled my commitment to this path.</p>
+<p>In the ever-evolving landscape of cybersecurity, one thing is certain: I&rsquo;m excited to continue pushing my boundaries, embracing new challenges, and ensuring that my skills are always at the cutting edge of penetration testing.</p>
+<p><em>eJPTv2 Certified Penetration Tester</em> 🛡️</p>
+<p><a href="https://www.linkedin.com/feed/update/urn:li:activity:7105963856169943040/">LinkedIn Post</a>	|	<a href="https://certs.ine.com/387eeb5e-9676-469f-a778-032ca94db1b2">Certificate Link</a></p>
+
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+    </div>
+<footer class="footer">
+  <div class="uk-container">
+
+    <div class="uk-grid-small uk-child-width-1-4@m uk-text-center uk-flex-center uk-margin-medium-bottom" uk-grid>
+      <div class="uk-margin-small-bottom">
+        <h5 class="uk-margin-small-bottom">Email</h5>
+        <a href="mailto:a.alomairah9@gmail.com">a.alomairah9@gmail.com</a>
+
+      </div>
+      <div>
+        <h5 class="uk-margin-small-bottom">Address</h5>
+          <div uk-lightbox>
+            <a href="" data-caption="Riyadh, Saudi Arabia"
+               data-type="iframe">Riyadh, Saudi Arabia</a>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="footer-copyright uk-text-center" style="padding-bottom: 1rem">
+      <img loading="lazy" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1.2em;
+  width: 1.2em;" alt="Creative Commons">
+      <img loading="lazy" src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1.2em;
+  width: 1.2em;" alt="CC-BY">
+      2024
+      Abdulrahman Alomairah
+    </div>
+  </div>
+</footer>
+
+
+<!-- JS Plugins -->
+
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit-icons.min.js"></script>
+
+</body>
+</html>

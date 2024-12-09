@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<style>
+    html {
+        height: 100vh;
+    }
+    body {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: 1fr auto;
+    }
+    .footer {
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+</style>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>Abdulrahman Alomairah</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" property="og:description" content="The website of Abdulrahman Alomairah, Senior Year Software Engineering Student at KFUPM">
+  <meta name="image" property="og:image" content="/">
+  <meta name="author" content="Abdulrahman Alomairah">
+  <meta name="generator" content="Hugo 0.139.0">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/css/uikit.min.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="/css/style.min.css" integrity="" media="screen">
+  
+  <link rel="stylesheet" href="/css/syntax.min.css" integrity="" media="screen">
+
+  <script src="https://cdn.jsdelivr.net/npm/mailgo@0.9.14/dist/mailgo.min.js" defer></script>
+
+  <!--Favicon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+</head>
+<body class="blog">
+    <div class="wrapper"><div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
+    <nav class="uk-navbar-container uk-margin" uk-navbar="mode: click;" style="padding-right: 3rem">
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav uk-visible@s">
+                
+                <li><a style="font-size: 18px; text-transform: none" href="/"> Home
+                        </a></li>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a style="font-size: 18px; text-transform: none" href="/about">About</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li class="uk-active"><a style="font-size: 18px; text-transform:none"
+                        href="/blog">Blog</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a style="font-size: 18px; text-transform: none" href="/portfolio">Portfolio</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a style="font-size: 18px; text-transform: none" href="/alomairah_resume.pdf">Resume</a></li>
+                
+                
+            </ul>
+
+            <a class="uk-navbar-toggle uk-hidden@s" uk-toggle="target: #sidenav" uk-navbar-toggle-icon href="#"></a>
+
+        </div>
+    </nav>
+</div>
+
+<div id="sidenav" uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+
+        <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+            
+            <li><a style="font-size: 18px" href="https://example.com/"> Home </a></li>
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a style="font-size: 18px" href="/about">About</a></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li class="uk-active"><a style="font-size: 18px" href="/blog">Blog</a></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a style="font-size: 18px" href="/portfolio">Portfolio</a></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a style="font-size: 18px" href="/alomairah_resume.pdf">Resume</a></li>
+            
+            
+        </ul>
+
+    </div>
+</div>
+
+
+
+
+<style>
+  p {
+    margin: 0
+  }
+
+  .people-wrap {
+    display: inline-flex;
+    margin-top: 10px;
+  }
+
+  .people-image {
+    display: block;
+    border-radius: 50%;
+     
+  }
+
+  .people {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .name {
+    margin: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000;
+    font-family: Roboto, sans-serif;
+    line-height: 1.2;
+    margin-top: 2rem;
+  }
+
+  .content img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:30px;
+  }
+
+  p { margin-bottom: 1em; }
+
+  body p:last-child { margin-bottom: 0em; }
+
+  img.skills{
+    height: 80px;
+  }
+
+  @media only screen and (min-width: 960px) {
+    .content img{max-width:60vw; max-height:60vh}
+
+  .content img{
+      max-width:60vw;
+      max-height:60vh
+  }
+  }
+  .content{
+      width: 90vw;
+      max-width: 1200px
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+</style>
+
+
+<section>
+  <div class="uk-container uk-margin-large-bottom uk-margin-medium-top">
+    <h1 class="uk-text-center uk-heading-medium">NixOS: Revolutionizing Linux through Reproducibility and Unbreakable Configuration</h1>
+    <p class="uk-text-center uk-text-lead"></p>
+    <p class="uk-text-center">Published on Aug 20, 2023</p>
+    <p class="uk-text-center">Reading time: 2 minutes.</p>
+    
+
+    <hr class="full-width">
+    
+
+    <div class="content">
+      <p>In the vast realm of Linux distributions, NixOS emerges as a game-changer, defying conventional practices with its novel approach to system configuration and package management. It champions declarative configuration, ensuring atomic upgrades, and employs content-addressable package management for unparalleled reproducibility and system integrity.</p>
+<h3 id="declarative-configuration-for-unbreakable-systems">Declarative Configuration for Unbreakable Systems</h3>
+<p>At the core of NixOS lies the concept of declarative system configuration. This paradigm shift empowers users to define their system&rsquo;s desired state using a single configuration file. This file encapsulates everything from software packages to network settings, all expressed in a functional language. This approach guarantees that changes are reversible, transparent, and free from interference with the current system state. This design fosters system resilience, enabling rapid recovery from issues and uniform behavior across various installations.</p>
+<h3 id="reproducibility-and-atomic-upgrades">Reproducibility and Atomic Upgrades</h3>
+<p>NixOS tackles the perennial issue of dependency conflicts during upgrades with its content-addressable package management system. Each package and its dependencies are meticulously identified using cryptographic hashes, allowing different package versions to coexist harmoniously. This meticulous approach enhances system reproducibility, ensuring that a precise system configuration can be faithfully recreated on multiple machines.</p>
+<h3 id="configurationnix-and-generations-a-powerful-duo">configuration.nix and Generations: A Powerful Duo</h3>
+<p>Central to NixOS&rsquo;s configuration management is the configuration.nix file. This file serves as the repository of the entire system&rsquo;s configuration, encompassing software installations, kernel parameters, and beyond. By editing this file, users articulate their desired system state. NixOS employs a historical record of configurations via &ldquo;generations.&rdquo; Each configuration change results in a new generation, enabling effortless rollback to prior states, thus maintaining a dependable and unbreakable system environment.</p>
+<p><strong>Example of <code>configuration.nix</code>:</strong></p>
+<pre tabindex="0"><code># /etc/nixos/configuration.nix
+
+{ config, pkgs, ... }:
+
+{
+  imports =
+    [ ./hardware-configuration.nix ];
+
+  networking.hostName = &#34;my-nixos-machine&#34;;
+  time.timeZone = &#34;UTC&#34;;
+
+  environment.systemPackages = with pkgs; [
+    neovim
+    firefox
+    htop
+  ];
+
+  users.users = {
+    myuser = {
+      isNormalUser = true;
+      uid = 1000;
+      home = &#34;/home/myuser&#34;;
+    };
+  };
+}
+</code></pre><h3 id="nix-flakes-enhancing-development-and-deployment">Nix Flakes: Enhancing Development and Deployment</h3>
+<p>Nix Flakes, an extension of NixOS, introduces a structured way to define package sets, configurations, and environments. This advancement simplifies sharing and replicating setups across different projects and systems. Nix Flakes solidifies reproducibility further and streamlines development and deployment workflows.</p>
+<h3 id="resources-for-exploring-nixos">Resources for Exploring NixOS</h3>
+<p><a href="https://nixos.org/">Official NixOS Website</a>: Access comprehensive documentation, installation guides, and the latest news.</p>
+<p><a href="https://github.com/NixOS/nixpkgs">Nixpkgs Repository</a>: Dive into the collection of package definitions for NixOS, spanning various software and libraries.</p>
+<p><a href="https://nixos.wiki/">NixOS Wiki</a>: Explore user-contributed tutorials, documentation, and tips catering to diverse use cases.</p>
+<p><a href="https://discourse.nixos.org/">NixOS Discourse Forum</a>: Engage in community discussions, seek support, and share knowledge.</p>
+<p>In a landscape marked by innovation and transformation, NixOS takes a bold stance, offering stability, predictability, and a novel approach to system management. Its revolutionary methods challenge norms, promising a glimpse into the future of Linux distributions. By embracing NixOS, users venture into uncharted territory, where system reproducibility and resilience reign supreme.</p>
+
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+    </div>
+<footer class="footer">
+  <div class="uk-container">
+
+    <div class="uk-grid-small uk-child-width-1-4@m uk-text-center uk-flex-center uk-margin-medium-bottom" uk-grid>
+      <div class="uk-margin-small-bottom">
+        <h5 class="uk-margin-small-bottom">Email</h5>
+        <a href="mailto:a.alomairah9@gmail.com">a.alomairah9@gmail.com</a>
+
+      </div>
+      <div>
+        <h5 class="uk-margin-small-bottom">Address</h5>
+          <div uk-lightbox>
+            <a href="" data-caption="Riyadh, Saudi Arabia"
+               data-type="iframe">Riyadh, Saudi Arabia</a>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="footer-copyright uk-text-center" style="padding-bottom: 1rem">
+      <img loading="lazy" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1.2em;
+  width: 1.2em;" alt="Creative Commons">
+      <img loading="lazy" src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1.2em;
+  width: 1.2em;" alt="CC-BY">
+      2024
+      Abdulrahman Alomairah
+    </div>
+  </div>
+</footer>
+
+
+<!-- JS Plugins -->
+
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit-icons.min.js"></script>
+
+</body>
+</html>

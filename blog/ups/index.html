@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<style>
+    html {
+        height: 100vh;
+    }
+    body {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: 1fr auto;
+    }
+    .footer {
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+</style>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>Abdulrahman Alomairah</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" property="og:description" content="The website of Abdulrahman Alomairah, Senior Year Software Engineering Student at KFUPM">
+  <meta name="image" property="og:image" content="/">
+  <meta name="author" content="Abdulrahman Alomairah">
+  <meta name="generator" content="Hugo 0.139.0">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/css/uikit.min.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="/css/style.min.css" integrity="" media="screen">
+  
+  <link rel="stylesheet" href="/css/syntax.min.css" integrity="" media="screen">
+
+  <script src="https://cdn.jsdelivr.net/npm/mailgo@0.9.14/dist/mailgo.min.js" defer></script>
+
+  <!--Favicon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+</head>
+<body class="blog">
+    <div class="wrapper"><div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
+    <nav class="uk-navbar-container uk-margin" uk-navbar="mode: click;" style="padding-right: 3rem">
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav uk-visible@s">
+                
+                <li><a style="font-size: 18px; text-transform: none" href="/"> Home
+                        </a></li>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a style="font-size: 18px; text-transform: none" href="/about">About</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li class="uk-active"><a style="font-size: 18px; text-transform:none"
+                        href="/blog">Blog</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a style="font-size: 18px; text-transform: none" href="/portfolio">Portfolio</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a style="font-size: 18px; text-transform: none" href="/alomairah_resume.pdf">Resume</a></li>
+                
+                
+            </ul>
+
+            <a class="uk-navbar-toggle uk-hidden@s" uk-toggle="target: #sidenav" uk-navbar-toggle-icon href="#"></a>
+
+        </div>
+    </nav>
+</div>
+
+<div id="sidenav" uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+
+        <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+            
+            <li><a style="font-size: 18px" href="https://example.com/"> Home </a></li>
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a style="font-size: 18px" href="/about">About</a></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li class="uk-active"><a style="font-size: 18px" href="/blog">Blog</a></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a style="font-size: 18px" href="/portfolio">Portfolio</a></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a style="font-size: 18px" href="/alomairah_resume.pdf">Resume</a></li>
+            
+            
+        </ul>
+
+    </div>
+</div>
+
+
+
+
+<style>
+  p {
+    margin: 0
+  }
+
+  .people-wrap {
+    display: inline-flex;
+    margin-top: 10px;
+  }
+
+  .people-image {
+    display: block;
+    border-radius: 50%;
+     
+  }
+
+  .people {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .name {
+    margin: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000;
+    font-family: Roboto, sans-serif;
+    line-height: 1.2;
+    margin-top: 2rem;
+  }
+
+  .content img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:30px;
+  }
+
+  p { margin-bottom: 1em; }
+
+  body p:last-child { margin-bottom: 0em; }
+
+  img.skills{
+    height: 80px;
+  }
+
+  @media only screen and (min-width: 960px) {
+    .content img{max-width:60vw; max-height:60vh}
+
+  .content img{
+      max-width:60vw;
+      max-height:60vh
+  }
+  }
+  .content{
+      width: 90vw;
+      max-width: 1200px
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+</style>
+
+
+<section>
+  <div class="uk-container uk-margin-large-bottom uk-margin-medium-top">
+    <h1 class="uk-text-center uk-heading-medium">The Power of Preparedness: Why a UPS is a Lifesaver for Home Servers</h1>
+    <p class="uk-text-center uk-text-lead"></p>
+    <p class="uk-text-center">Published on Aug 22, 2023</p>
+    <p class="uk-text-center">Reading time: 2 minutes.</p>
+    
+
+    <hr class="full-width">
+    
+
+    <div class="content">
+      <h2 id="the-power-of-preparedness-why-a-ups-is-a-lifesaver-for-home-servers">The Power of Preparedness: Why a UPS is a Lifesaver for Home Servers</h2>
+<p><em>Lessons from a Power Outage Misadventure</em></p>
+<p>We&rsquo;ve all heard the saying, <em>&ldquo;With great power comes great responsibility.&rdquo;</em> But what about, <em>&ldquo;With great server hosting comes great problems&rdquo;?</em> As home server enthusiasts, we embark on a journey filled with excitement and challenges, seeking the thrill of managing our own services. However, yesterday&rsquo;s power outage served as a poignant reminder that hosting our own services also means hosting our own problems. Enter the unsung hero of the day: the Uninterruptible Power Supply (UPS).</p>
+<h3 id="power-outages-the-uninvited-guests">Power Outages: The Uninvited Guests</h3>
+<p>Imagine this: you&rsquo;ve invested your time and effort into setting up a home server, meticulously configuring each aspect to cater to your needs. Your website, file server, or perhaps a game server is running like a well-oiled machine. Then, out of nowhere, the lights flicker and darkness envelops your once-bustling server room. Power outage – the uninvited guest that can wreak havoc on your digital oasis.</p>
+<h3 id="the-dreaded-aftermath">The Dreaded Aftermath</h3>
+<p>Yesterday, I found myself in this exact situation. A sudden power outage brought my carefully crafted server setup crashing down. When the power finally returned, so did the dread. My server booted up, but something was off. The boot options were corrupted, and chaos reigned. It was as if my server&rsquo;s operating system was suffering from a bad hangover – sluggish, confused, and anything but functional.</p>
+<h3 id="the-grub-woes-and-fstab-fiasco">The Grub Woes and Fstab Fiasco</h3>
+<p>After some investigation, I realized that the power interruption had jolted the system in ways I hadn&rsquo;t anticipated. The boot options were tangled up, and the <code>grub</code> configuration had gone awry. To make matters worse, the <code>/etc/fstab</code> file, responsible for mounting file systems at boot, was playing hard to get. It was a classic case of <em>&ldquo;when you host your own services, you host your own problems.&rdquo;</em></p>
+<h3 id="enter-the-hero-uninterruptible-power-supply-ups">Enter the Hero: Uninterruptible Power Supply (UPS)</h3>
+<p>In this dire situation, the UPS came to the rescue – the unsung hero that saved the day. An Uninterruptible Power Supply is like a digital knight in shining armor. It stands between your server and the unpredictable nature of electricity supply. When a power outage strikes, the UPS seamlessly takes over, offering a few precious minutes to gracefully shut down your server rather than yanking the power out abruptly.</p>
+<h3 id="lessons-learned-and-silver-linings">Lessons Learned and Silver Linings</h3>
+<p>As frustrating as the power outage experience was, it served as a valuable lesson. It underscored the importance of being prepared for the unexpected when running your own home server. A UPS might seem like an afterthought, but it can be the difference between a minor hiccup and a major catastrophe. While we might joke that <em>&ldquo;when you host your own services, you host your own problems,&rdquo;</em> it&rsquo;s crucial to remember that we also have the power to mitigate those problems through thoughtful planning and the right tools.</p>
+<p>So, fellow server enthusiasts, take it from someone who learned the hard way – invest in a reliable UPS for your home server setup. You&rsquo;ll be thanking yourself when the lights go out, and your server stays online, ready to face another day of hosting with resilience and grace.</p>
+
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+    </div>
+<footer class="footer">
+  <div class="uk-container">
+
+    <div class="uk-grid-small uk-child-width-1-4@m uk-text-center uk-flex-center uk-margin-medium-bottom" uk-grid>
+      <div class="uk-margin-small-bottom">
+        <h5 class="uk-margin-small-bottom">Email</h5>
+        <a href="mailto:a.alomairah9@gmail.com">a.alomairah9@gmail.com</a>
+
+      </div>
+      <div>
+        <h5 class="uk-margin-small-bottom">Address</h5>
+          <div uk-lightbox>
+            <a href="" data-caption="Riyadh, Saudi Arabia"
+               data-type="iframe">Riyadh, Saudi Arabia</a>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="footer-copyright uk-text-center" style="padding-bottom: 1rem">
+      <img loading="lazy" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1.2em;
+  width: 1.2em;" alt="Creative Commons">
+      <img loading="lazy" src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1.2em;
+  width: 1.2em;" alt="CC-BY">
+      2024
+      Abdulrahman Alomairah
+    </div>
+  </div>
+</footer>
+
+
+<!-- JS Plugins -->
+
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit-icons.min.js"></script>
+
+</body>
+</html>

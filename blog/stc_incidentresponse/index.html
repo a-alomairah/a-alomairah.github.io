@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<style>
+    html {
+        height: 100vh;
+    }
+    body {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: 1fr auto;
+    }
+    .footer {
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+</style>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>Abdulrahman Alomairah</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" property="og:description" content="The website of Abdulrahman Alomairah, Senior Year Software Engineering Student at KFUPM">
+  <meta name="image" property="og:image" content="/">
+  <meta name="author" content="Abdulrahman Alomairah">
+  <meta name="generator" content="Hugo 0.139.0">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/css/uikit.min.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="/css/style.min.css" integrity="" media="screen">
+  
+  <link rel="stylesheet" href="/css/syntax.min.css" integrity="" media="screen">
+
+  <script src="https://cdn.jsdelivr.net/npm/mailgo@0.9.14/dist/mailgo.min.js" defer></script>
+
+  <!--Favicon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+</head>
+<body class="blog">
+    <div class="wrapper"><div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
+    <nav class="uk-navbar-container uk-margin" uk-navbar="mode: click;" style="padding-right: 3rem">
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav uk-visible@s">
+                
+                <li><a style="font-size: 18px; text-transform: none" href="/"> Home
+                        </a></li>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a style="font-size: 18px; text-transform: none" href="/about">About</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li class="uk-active"><a style="font-size: 18px; text-transform:none"
+                        href="/blog">Blog</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a style="font-size: 18px; text-transform: none" href="/portfolio">Portfolio</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li><a style="font-size: 18px; text-transform: none" href="/alomairah_resume.pdf">Resume</a></li>
+                
+                
+            </ul>
+
+            <a class="uk-navbar-toggle uk-hidden@s" uk-toggle="target: #sidenav" uk-navbar-toggle-icon href="#"></a>
+
+        </div>
+    </nav>
+</div>
+
+<div id="sidenav" uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+
+        <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+            
+            <li><a style="font-size: 18px" href="https://example.com/"> Home </a></li>
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a style="font-size: 18px" href="/about">About</a></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li class="uk-active"><a style="font-size: 18px" href="/blog">Blog</a></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a style="font-size: 18px" href="/portfolio">Portfolio</a></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a style="font-size: 18px" href="/alomairah_resume.pdf">Resume</a></li>
+            
+            
+        </ul>
+
+    </div>
+</div>
+
+
+
+
+<style>
+  p {
+    margin: 0
+  }
+
+  .people-wrap {
+    display: inline-flex;
+    margin-top: 10px;
+  }
+
+  .people-image {
+    display: block;
+    border-radius: 50%;
+     
+  }
+
+  .people {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .name {
+    margin: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000;
+    font-family: Roboto, sans-serif;
+    line-height: 1.2;
+    margin-top: 2rem;
+  }
+
+  .content img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:30px;
+  }
+
+  p { margin-bottom: 1em; }
+
+  body p:last-child { margin-bottom: 0em; }
+
+  img.skills{
+    height: 80px;
+  }
+
+  @media only screen and (min-width: 960px) {
+    .content img{max-width:60vw; max-height:60vh}
+
+  .content img{
+      max-width:60vw;
+      max-height:60vh
+  }
+  }
+  .content{
+      width: 90vw;
+      max-width: 1200px
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+</style>
+
+
+<section>
+  <div class="uk-container uk-margin-large-bottom uk-margin-medium-top">
+    <h1 class="uk-text-center uk-heading-medium">STC Incident Response Virtual Work Experiance</h1>
+    <p class="uk-text-center uk-text-lead"></p>
+    <p class="uk-text-center">Published on Aug 28, 2023</p>
+    <p class="uk-text-center">Reading time: 1 minutes.</p>
+    
+
+    <hr class="full-width">
+    
+
+    <div class="content">
+      <h2 id="certificate-of-completion-virtual-work-experience-in-cybersecurity-incident-response-analysis">Certificate of Completion: Virtual Work Experience in Cybersecurity Incident Response Analysis</h2>
+<p>I&rsquo;m thrilled to share that I&rsquo;ve successfully completed a Virtual Work Experience program focused on <strong>Cybersecurity Incident Response Analysis</strong>. This immersive program provided me with invaluable insights into the world of cybersecurity and equipped me with practical skills to effectively respond to potential threats.</p>
+<h3 id="program-highlights">Program Highlights:</h3>
+<ul>
+<li>
+<p><strong>Hands-on Experience:</strong> Throughout the program, I had the opportunity to work with real-world data and scenarios. This allowed me to gain practical experience and a deeper understanding of cyber threats and vulnerabilities.</p>
+</li>
+<li>
+<p><strong>Splunk for Network Log Analysis:</strong> One of the key tools I utilized was <strong>Splunk</strong>, a powerful platform for analyzing and visualizing machine-generated data. I learned how to extract meaningful insights from network logs, helping to identify and respond to potential security incidents.</p>
+</li>
+<li>
+<p><strong>Oldeump for Email Attachment Analysis:</strong> Another essential aspect of the program was learning to use <strong>Oldeump</strong> for analyzing email attachments. This skill proved invaluable in understanding and mitigating risks associated with malicious attachments, a common entry point for cyberattacks.</p>
+</li>
+</ul>
+<h3 id="what-i-gained">What I Gained:</h3>
+<ul>
+<li>
+<p><strong>Technical Proficiency:</strong> The hands-on experience with Splunk and Oldeump significantly enhanced my technical skills in analyzing and interpreting cybersecurity-related data.</p>
+</li>
+<li>
+<p><strong>Incident Response Strategies:</strong> I gained a solid foundation in incident response strategies, learning how to detect, investigate, and mitigate potential cybersecurity incidents effectively.</p>
+</li>
+</ul>
+<h3 id="thank-you">Thank You!</h3>
+<p>I want to express my gratitude to the organizers of this Virtual Work Experience program for providing such a comprehensive and practical learning opportunity. I&rsquo;m excited to apply the knowledge and skills I&rsquo;ve gained to contribute positively to the field of cybersecurity.</p>
+<p>If you&rsquo;re interested in the ever-evolving realm of cybersecurity or seeking to bolster your incident response capabilities, I highly recommend exploring similar educational opportunities. Feel free to reach out to me for more information about my experience or the insights I&rsquo;ve gained. Let&rsquo;s stay vigilant and proactive in safeguarding digital landscapes from potential threats.</p>
+<p><a href="https://www.linkedin.com/feed/update/urn:li:activity:7101846292686876673/">LinkedIn Post</a>
+<img src="/website/images/STC_IncidentResponse_Cert.png" alt="Certificate Image"></p>
+
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+    </div>
+<footer class="footer">
+  <div class="uk-container">
+
+    <div class="uk-grid-small uk-child-width-1-4@m uk-text-center uk-flex-center uk-margin-medium-bottom" uk-grid>
+      <div class="uk-margin-small-bottom">
+        <h5 class="uk-margin-small-bottom">Email</h5>
+        <a href="mailto:a.alomairah9@gmail.com">a.alomairah9@gmail.com</a>
+
+      </div>
+      <div>
+        <h5 class="uk-margin-small-bottom">Address</h5>
+          <div uk-lightbox>
+            <a href="" data-caption="Riyadh, Saudi Arabia"
+               data-type="iframe">Riyadh, Saudi Arabia</a>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="footer-copyright uk-text-center" style="padding-bottom: 1rem">
+      <img loading="lazy" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1.2em;
+  width: 1.2em;" alt="Creative Commons">
+      <img loading="lazy" src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1.2em;
+  width: 1.2em;" alt="CC-BY">
+      2024
+      Abdulrahman Alomairah
+    </div>
+  </div>
+</footer>
+
+
+<!-- JS Plugins -->
+
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit-icons.min.js"></script>
+
+</body>
+</html>
