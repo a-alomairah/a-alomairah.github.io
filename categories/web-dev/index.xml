@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web-Dev on Abdulrahman Alomairah</title>
+    <link>https://a-alomairah.github.io/categories/web-dev/</link>
+    <description>Recent content in Web-Dev on Abdulrahman Alomairah</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Dec 2024 15:00:00 +0000</lastBuildDate>
+    <atom:link href="https://a-alomairah.github.io/categories/web-dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EventScape</title>
+      <link>https://a-alomairah.github.io/portfolio/senior-project/</link>
+      <pubDate>Wed, 11 Dec 2024 15:00:00 +0000</pubDate>
+      <guid>https://a-alomairah.github.io/portfolio/senior-project/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://a-alomairah.github.io/media/eventscape.mp4&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
