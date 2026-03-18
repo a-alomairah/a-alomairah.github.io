@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Terminal from '../components/Terminal.astro';
+---
+
+<BaseLayout title="./about — Abdulrahman Alomairah">
+  <h1>~/about $<span class="text-dim"> cat info.json</span></h1>
+
+  <Terminal title="cat info.json">
+    <pre class="json-output">{`{`}
+{`  "name": "Abdulrahman Alomairah",`}
+{`  "name_ar": "عبدالرحمن العَميرة",`}
+{`  "role": "Software Engineer & Cybersecurity Enthusiast",`}
+{`  "location": "Riyadh, Saudi Arabia",`}
+{`  "email": "a.alomairah9@gmail.com",`}
+{`  "github": "a-alomairah"`}
+{`}`}</pre>
+  </Terminal>
+
+  <section class="stats mt-3">
+    <h2 class="text-green">// education</h2>
+    <div class="stat-row">
+      <span class="text-dim">university</span>
+      <span>King Fahd University of Petroleum and Minerals (KFUPM)</span>
+    </div>
+    <div class="stat-row">
+      <span class="text-dim">degree</span>
+      <span>BSc Software Engineering (Senior Year)</span>
+    </div>
+  </section>
+
+  <section class="stats mt-3">
+    <h2 class="text-green">// certifications</h2>
+    <div class="stat-row">
+      <span class="text-dim">cert_0</span>
+      <span>eJPTv2 — INE / eLearnSecurity</span>
+    </div>
+    <div class="stat-row">
+      <span class="text-dim">cert_1</span>
+      <span>CompTIA Security+</span>
+    </div>
+    <div class="stat-row">
+      <span class="text-dim">cert_2</span>
+      <span>LLMs Practitioner</span>
+    </div>
+    <div class="stat-row">
+      <span class="text-dim">cert_3</span>
+      <span>SOC Level 1</span>
+    </div>
+  </section>
+
+  <section class="stats mt-3">
+    <h2 class="text-green">// skills</h2>
+    <div class="stat-row">
+      <span class="text-dim">languages</span>
+      <span>Python, JavaScript, C, Java, Bash, PHP, Haskell</span>
+    </div>
+    <div class="stat-row">
+      <span class="text-dim">frameworks</span>
+      <span>Django, Flask, React, Flutter</span>
+    </div>
+    <div class="stat-row">
+      <span class="text-dim">tools</span>
+      <span>Docker, Git, Linux, Metasploit, Wireshark, Splunk</span>
+    </div>
+    <div class="stat-row">
+      <span class="text-dim">interests</span>
+      <span>Penetration Testing, CTFs, Self-Hosting, NixOS</span>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .json-output {
+    background: none !important;
+    border: none !important;
+    color: var(--grey);
+    padding: 0 !important;
+    margin: 0 !important;
+    font-family: var(--font);
+    line-height: 1.8;
+  }
+
+  .stats {
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 2rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid #111;
+  }
+
+  .stat-row span:first-child {
+    min-width: 120px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 600px) {
+    .stat-row {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+  }
+</style>
