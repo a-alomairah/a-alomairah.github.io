@@ -1,0 +1,99 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Abdulrahman Alomairah — Software Engineer & Cybersecurity Enthusiast' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="/" class="nav-prompt">a@alomairah ~/$</a>
+        <div class="nav-links">
+          <a href="/about">./about</a>
+          <a href="/blog">./blog</a>
+          <a href="/portfolio">./portfolio</a>
+          <a href="/alomairah_resume.pdf" target="_blank">./resume</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container main-content">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-dim">&copy; {new Date().getFullYear()} Abdulrahman Alomairah. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .nav {
+    border-bottom: 1px solid #222;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    background: rgba(7, 7, 7, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .nav-prompt {
+    color: var(--green);
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    color: var(--dim);
+    font-size: 0.9rem;
+  }
+
+  .nav-links a:hover {
+    color: var(--green);
+    text-shadow: 0 0 8px var(--green);
+  }
+
+  .main-content {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    min-height: calc(100vh - 140px);
+  }
+
+  .footer {
+    border-top: 1px solid #222;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+</style>
