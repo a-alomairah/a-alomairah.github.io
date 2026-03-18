@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const projects = [
+  {
+    title: 'EventScape',
+    description: 'Senior Software Engineering project. A comprehensive event management platform with AI-powered features, SMS notifications via Twilio, and a Flutter mobile app.',
+    tech: ['Django', 'Flutter', 'Docker', 'LangChain', 'OpenAI', 'Twilio'],
+    logos: {
+      Django: '/logos/django.svg',
+      Flutter: '/logos/flutter.svg',
+      Docker: '/logos/docker.svg',
+      LangChain: '/logos/langchain.svg',
+      OpenAI: '/logos/openai.svg',
+      Twilio: '/logos/twilio.svg',
+    },
+  },
+];
+---
+
+<BaseLayout title="./portfolio — Abdulrahman Alomairah">
+  <h1>~/portfolio $<span class="text-dim"> ls -la</span></h1>
+
+  <div class="projects mt-2">
+    {projects.map((project) => (
+      <div class="project-card">
+        <h2 class="glitch">{project.title}</h2>
+        <p class="mt-1">{project.description}</p>
+        <div class="tech-stack mt-2">
+          {project.tech.map((t) => (
+            <span class="badge badge-green">
+              {project.logos[t] && (
+                <img src={project.logos[t]} alt={t} class="tech-logo" />
+              )}
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: #0a0a0a;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: border-color 0.3s;
+  }
+
+  .project-card:hover {
+    border-color: var(--purple);
+  }
+
+  .project-card h2 {
+    font-size: 1.2rem;
+    cursor: default;
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tech-logo {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 4px;
+    border: none;
+    border-radius: 0;
+  }
+</style>
