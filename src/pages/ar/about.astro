@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const skills = [
+  { label: 'اللغات', items: ['Python', 'JavaScript', 'C', 'Java', 'Bash', 'PHP', 'Haskell'] },
+  { label: 'أطر العمل', items: ['Django', 'Flask', 'React', 'Flutter'] },
+  { label: 'الأدوات', items: ['Docker', 'Git', 'Linux', 'Metasploit', 'Wireshark', 'Splunk'] },
+  { label: 'الاهتمامات', items: ['اختبار الاختراق', 'الاستضافة الذاتية', 'دمج الذكاء الاصطناعي'] },
+];
+
+const certifications: {
+  name: string;
+  issuer: string | null;
+  date?: string;
+  href?: string;
+}[] = [
+  {
+    name: 'eWPT',
+    issuer: 'INE',
+    date: 'أغسطس 2026',
+    href: 'https://certs.ine.com/f0e60b37-a138-425d-8fad-7ff88b01ee38#acc.XJVZxdve',
+  },
+  { name: 'eJPTv2', issuer: 'INE / eLearnSecurity' },
+  { name: 'CompTIA Security+', issuer: 'CompTIA' },
+  { name: 'LLMs Practitioner', issuer: null },
+  { name: 'SOC Level 1', issuer: null },
+];
+---
+
+<BaseLayout
+  title="نبذة — عبدالرحمن العَميرة"
+  description="نبذة عن عبدالرحمن العَميرة: مهندس برمجيات في الرياض، خريج جامعة الملك فهد للبترول والمعادن 2024."
+  lang="ar"
+  altPath="/about/"
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="kicker">01 — نبذة</p>
+      <h1 class="page-hero__title display">نبذة</h1>
+      <div class="page-hero__lede">
+        <p>
+          مهندس برمجيات، وشغوف بالأمن، والشخص الذي يتطوّع لإصلاح خادم المنزل.
+        </p>
+        <p class="mono muted">الرياض — جامعة الملك فهد ’24</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-copy">
+          <p class="lede">
+            أنا عبدالرحمن العَميرة، مهندس برمجيات مقيم في الرياض، المملكة العربية
+            السعودية. تخرجت من جامعة الملك فهد للبترول والمعادن عام 2024
+            ببكالوريوس في هندسة البرمجيات.
+          </p>
+          <p>
+            عملي يقع على تقاطع هندسة البرمجيات والأمن السيبراني. أحب بناء الأنظمة
+            من طرفها إلى طرفها الآخر — قاعدة البيانات، والواجهة البرمجية، وتطبيق
+            الجوال، والحاوية التي تُشحن فيها، والتقوية التي تُبقيها صامدة.
+          </p>
+          <p>
+            خارج العمل أقضي وقتي في بنية تحتية أستضيفها بنفسي — خدمات، ونسخ
+            احتياطية، وشبكات — وأكتب عما أكسره وأصلحه في الطريق.
+          </p>
+          <p>
+            يهمني البرمجيات المفهومة، والبنية التحتية القابلة للتكرار، والأمن
+            المصمَّم من البداية لا المُضاف لاحقًا.
+          </p>
+        </div>
+
+        <figure class="hero__portrait">
+          <img
+            src="/images/about/profile.png"
+            alt="صورة عبدالرحمن العَميرة"
+            width="654"
+            height="540"
+            loading="lazy"
+          />
+          <figcaption>
+            <span>شكل 01 — العَميرة</span>
+            <span>الرياض</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="section-head__index">02</span>التعليم</h2>
+      </div>
+      <dl class="spec-table" style="margin-top: 1.5rem;">
+        <div class="spec-table__row">
+          <dt>الجامعة</dt>
+          <dd>جامعة الملك فهد للبترول والمعادن (KFUPM)</dd>
+        </div>
+        <div class="spec-table__row">
+          <dt>الدرجة</dt>
+          <dd>بكالوريوس هندسة برمجيات — 2019–2024</dd>
+        </div>
+        <div class="spec-table__row">
+          <dt>الموقع</dt>
+          <dd>الظهران، المملكة العربية السعودية</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="section-head__index">03</span>الشهادات</h2>
+      </div>
+      <div style="margin-top: 1.5rem;">
+        {certifications.map((cert, i) => (
+          <div class="cert-row">
+            <span class="cert-row__index">{String(i + 1).padStart(2, '0')}</span>
+            <span class="cert-row__name">
+              {cert.href ? (
+                <a href={cert.href} class="link" target="_blank" rel="noopener">
+                  {cert.name} ↗
+                </a>
+              ) : (
+                cert.name
+              )}
+            </span>
+            {cert.issuer && (
+              <span class="cert-row__issuer mono muted">
+                {cert.issuer}
+                {cert.date ? ` — ${cert.date}` : ''}
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="section-head__index">04</span>الأدوات</h2>
+      </div>
+      <div class="skill-grid">
+        {skills.map((group) => (
+          <div class="skill-group">
+            <h3 class="kicker">{group.label}</h3>
+            <ul class="tags">
+              {group.items.map((item) => (
+                <li class="tag">{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container cta__inner">
+      <div>
+        <h2 class="cta__title">تواصل معي.</h2>
+        <p class="cta__body">
+          أسرع طريقة للوصول إليّ هي البريد الإلكتروني، وتجدني أيضًا على GitHub.
+        </p>
+        <div class="cta__actions">
+          <a href="mailto:a.alomairah9@gmail.com" class="btn btn--light">راسلني ↗</a>
+          <a
+            href="https://github.com/a-alomairah"
+            class="btn btn--ghost-light"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cert-row {
+    display: grid;
+    grid-template-columns: 3.5rem 1fr auto;
+    gap: 1.5rem;
+    align-items: baseline;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .cert-row__index {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--blue);
+  }
+
+  .cert-row__name {
+    font-family: var(--font-ar-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .cert-row__issuer {
+    text-align: end;
+  }
+
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .skill-group {
+    border-top: 1px solid var(--rule);
+    padding-top: 1rem;
+  }
+
+  .skill-group .tags {
+    margin-top: 0.8rem;
+  }
+
+  @media (max-width: 720px) {
+    .cert-row {
+      grid-template-columns: 2.2rem 1fr;
+    }
+
+    .cert-row__issuer {
+      grid-column: 2;
+      text-align: start;
+    }
+
+    .skill-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -5,10 +5,21 @@ const skills = [
   { label: 'Languages', items: ['Python', 'JavaScript', 'C', 'Java', 'Bash', 'PHP', 'Haskell'] },
   { label: 'Frameworks', items: ['Django', 'Flask', 'React', 'Flutter'] },
   { label: 'Tools', items: ['Docker', 'Git', 'Linux', 'Metasploit', 'Wireshark', 'Splunk'] },
-  { label: 'Interests', items: ['Penetration testing', 'CTFs', 'Self-hosting', 'NixOS', 'AI / LLM integration'] },
+  { label: 'Interests', items: ['Penetration testing', 'Self-hosting', 'AI / LLM integration'] },
 ];
 
-const certifications = [
+const certifications: {
+  name: string;
+  issuer: string | null;
+  date?: string;
+  href?: string;
+}[] = [
+  {
+    name: 'eWPT',
+    issuer: 'INE',
+    date: 'Aug 2026',
+    href: 'https://certs.ine.com/f0e60b37-a138-425d-8fad-7ff88b01ee38#acc.XJVZxdve',
+  },
   { name: 'eJPTv2', issuer: 'INE / eLearnSecurity' },
   { name: 'CompTIA Security+', issuer: 'CompTIA' },
   { name: 'LLMs Practitioner', issuer: null },
@@ -16,7 +27,7 @@ const certifications = [
 ];
 ---
 
-<BaseLayout title="About — Abdulrahman Alomairah">
+<BaseLayout title="About — Abdulrahman Alomairah" altPath="/ar/about/">
   <section class="page-hero">
     <div class="container">
       <p class="kicker">01 — About</p>
@@ -47,9 +58,9 @@ const certifications = [
             hardening that keeps it standing.
           </p>
           <p>
-            Outside of work I spend time on penetration testing labs, CTFs, and
-            a self-hosted homelab running NixOS. I write about the things I
-            break and fix along the way.
+            Outside of work I spend my time on a self-hosted homelab — services,
+            backups, networking — and I write about the things I break and fix
+            along the way.
           </p>
           <p>
             I care about software that is understandable, infrastructure that is
@@ -106,9 +117,20 @@ const certifications = [
         {certifications.map((cert, i) => (
           <div class="cert-row">
             <span class="cert-row__index">{String(i + 1).padStart(2, '0')}</span>
-            <span class="cert-row__name">{cert.name}</span>
+            <span class="cert-row__name">
+              {cert.href ? (
+                <a href={cert.href} class="link" target="_blank" rel="noopener">
+                  {cert.name} ↗
+                </a>
+              ) : (
+                cert.name
+              )}
+            </span>
             {cert.issuer && (
-              <span class="cert-row__issuer mono muted">{cert.issuer}</span>
+              <span class="cert-row__issuer mono muted">
+                {cert.issuer}
+                {cert.date ? ` — ${cert.date}` : ''}
+              </span>
             )}
           </div>
         ))}

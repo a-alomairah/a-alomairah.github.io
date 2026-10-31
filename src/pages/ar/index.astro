@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
+
+const projects = [
+  {
+    index: '01',
+    title: 'EventScape',
+    description:
+      'مشروع التخرج في هندسة البرمجيات: منصة لإدارة الفعاليات بميزات مدعومة بالذكاء الاصطناعي، وإشعارات رسائل نصية، وتطبيق جوال بـ Flutter.',
+    tech: ['Django', 'Flutter', 'Docker', 'LangChain', 'OpenAI', 'Twilio'],
+    href: '/ar/portfolio/#eventscape',
+  },
+  {
+    index: '02',
+    title: 'الاستضافة الذاتية',
+    description:
+      'منظومة خدمات أستضيفها بنفسي على Docker — الخدمات التي أعتمد عليها، مع النسخ الاحتياطي والمراقبة.',
+    tech: ['Docker', 'Linux', 'استضافة ذاتية'],
+    href: '/ar/portfolio/#homelab',
+  },
+  {
+    index: '03',
+    title: 'هذا الموقع',
+    description:
+      'موقع مبني بـ Astro و MDX، يُبنى ويُنشر تلقائيًا على GitHub Pages عبر GitHub Actions.',
+    tech: ['Astro', 'MDX', 'GitHub Actions', 'GitHub Pages'],
+    href: '/ar/portfolio/#website',
+  },
+];
+
+const spec = [
+  { label: 'الموقع', value: 'الرياض، السعودية' },
+  { label: 'التخصص', value: 'البرمجيات والأمن' },
+  { label: 'التعليم', value: 'جامعة الملك فهد — بكالوريوس هندسة برمجيات، 2024' },
+  { label: 'حاليًا', value: 'الاستضافة الذاتية' },
+];
+
+const arMonths = [
+  'يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو',
+  'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
+];
+const formatDate = (date: Date) =>
+  `${date.getDate()} ${arMonths[date.getMonth()]} ${date.getFullYear()}`;
+---
+
+<BaseLayout
+  title="عبدالرحمن العَميرة — مهندس برمجيات وأمن سيبراني"
+  description="عبدالرحمن العَميرة — مهندس برمجيات وشغوف بالأمن السيبراني، مقيم في الرياض، المملكة العربية السعودية."
+  lang="ar"
+  altPath="/"
+>
+  <div class="container">
+    <section class="hero">
+      <div>
+        <p class="kicker hero__kicker">ملف الأعمال / 2026</p>
+
+        <h1 class="hero__title display">
+          <span>عبدالرحمن</span>
+          <span class="line-2">العَميرة</span>
+        </h1>
+
+        <p class="hero__copy">
+          مهندس برمجيات وشغوف بالأمن السيبراني. أبني أنظمة آمنة، وبرمجيات مفيدة،
+          وبنية تحتية أستضيفها بنفسي.
+        </p>
+
+        <div class="hero__actions">
+          <a href="/ar/portfolio" class="btn btn--primary">أعمال مختارة ↗</a>
+          <a href="mailto:a.alomairah9@gmail.com" class="btn">راسلني</a>
+        </div>
+      </div>
+
+      <figure class="hero__portrait">
+        <img
+          src="/images/about/profile.png"
+          alt="صورة عبدالرحمن العَميرة"
+          width="654"
+          height="540"
+          loading="eager"
+        />
+        <figcaption>
+          <span>شكل 01 — العَميرة</span>
+          <span>الرياض</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <div class="spec">
+      {spec.map((item) => (
+        <div class="spec__cell">
+          <span class="spec__label">{item.label}</span>
+          <span class="spec__value">{item.value}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="section-head__index">01</span>أعمال مختارة</h2>
+        <a href="/ar/portfolio" class="section-head__link">كل الأعمال ↗</a>
+      </div>
+
+      {projects.map((project) => (
+        <a href={project.href} class="work-row">
+          <span class="work-row__index">{project.index}</span>
+          <div>
+            <h3 class="work-row__title">{project.title}</h3>
+            <p class="work-row__desc">{project.description}</p>
+            <ul class="tags">
+              {project.tech.map((tech) => (
+                <li class="tag">{tech}</li>
+              ))}
+            </ul>
+          </div>
+          <span class="work-row__arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="section-head__index">02</span>كتابات</h2>
+        <a href="/ar/blog" class="section-head__link">كل الكتابات ↗</a>
+      </div>
+
+      {posts.map((post, i) => (
+        <a href={`/blog/${post.id}/`} class="post-row">
+          <span class="post-row__index">{String(i + 1).padStart(2, '0')}</span>
+          <span class="post-row__date">EN</span>
+          <div>
+            <h3 class="post-row__title">{post.data.title}</h3>
+            {post.data.description && (
+              <p class="post-row__desc">{post.data.description}</p>
+            )}
+          </div>
+          <span class="post-row__arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="section-head__index">03</span>نبذة</h2>
+        <a href="/ar/about" class="section-head__link">المزيد عني ↗</a>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-copy">
+          <p class="lede">
+            تخرجت من جامعة الملك فهد للبترول والمعادن عام 2024 ببكالوريوس في
+            هندسة البرمجيات، ومنذ ذلك الحين أبني برمجيات على تقاطع تطوير الويب
+            والأمن وأنظمة لينكس.
+          </p>
+          <p>
+            خبرتي تمتد على تطوير الويب الكامل، واختبار الاختراق، والبنية
+            التحتية. بنيت منصة فعاليات مدعومة بالذكاء الاصطناعي، وأدير الخدمات
+            التي أستضيفها بنفسي وأعتمد عليها يوميًا.
+          </p>
+          <p>
+            <a href="/ar/about" class="link">السيرة الكاملة ←</a>
+          </p>
+        </div>
+
+        <dl class="spec-table">
+          <div class="spec-table__row">
+            <dt>التعليم</dt>
+            <dd>جامعة الملك فهد للبترول والمعادن — بكالوريوس هندسة برمجيات، 2019–2024</dd>
+          </div>
+          <div class="spec-table__row">
+            <dt>الشهادات</dt>
+            <dd>eWPT، eJPTv2، CompTIA Security+، LLMs Practitioner، SOC Level 1</dd>
+          </div>
+          <div class="spec-table__row">
+            <dt>الأدوات</dt>
+            <dd>Python، JavaScript، Django، Flask، React، Flutter، Docker، Linux</dd>
+          </div>
+          <div class="spec-table__row">
+            <dt>الاهتمامات</dt>
+            <dd>اختبار الاختراق، الاستضافة الذاتية، أدوات الذكاء الاصطناعي</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

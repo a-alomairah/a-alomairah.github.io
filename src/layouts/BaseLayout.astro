@@ -1,46 +1,97 @@
 ---
 import '../styles/global.css';
-import Marquee from '../components/Marquee.astro';
 
 interface Props {
   title: string;
   description?: string;
+  lang?: 'en' | 'ar';
+  altPath?: string;
 }
 
 const {
   title,
   description = 'Abdulrahman Alomairah — software engineer and cybersecurity enthusiast based in Riyadh, Saudi Arabia.',
+  lang = 'en',
+  altPath,
 } = Astro.props;
 
+const dir = lang === 'ar' ? 'rtl' : 'ltr';
 const path = Astro.url.pathname;
 const canonical = new URL(path, Astro.site ?? 'https://a-alomairah.github.io');
 const year = new Date().getFullYear();
 
-const nav = [
-  { href: '/about', label: 'About', index: '01' },
-  { href: '/portfolio', label: 'Work', index: '02' },
-  { href: '/blog', label: 'Writing', index: '03' },
-];
+const t =
+  lang === 'ar'
+    ? {
+        nav: [
+          { href: '/ar/about', label: 'نبذة', index: '01' },
+          { href: '/ar/portfolio', label: 'أعمال', index: '02' },
+          { href: '/ar/blog', label: 'كتابات', index: '03' },
+        ],
+        navLabel: 'التنقل الرئيسي',
+        cv: 'السيرة ↗',
+        brand: 'عبدالرحمن العَميرة',
+        footerName: 'عبدالرحمن العَميرة',
+        footerTagline:
+          'مهندس برمجيات وشغوف بالأمن السيبراني. أبني أنظمة آمنة وبنية تحتية مستضافة ذاتيًا، وأكتب عما أتعلمه.',
+        location: 'الرياض، السعودية',
+        navTitle: 'التنقل',
+        navLinks: [
+          { href: '/ar/', label: 'الرئيسية' },
+          { href: '/ar/about', label: 'نبذة' },
+          { href: '/ar/portfolio', label: 'أعمال' },
+          { href: '/ar/blog', label: 'كتابات' },
+        ],
+        elsewhere: 'روابط',
+        github: 'GitHub ↗',
+        email: 'البريد ↗',
+        resume: 'السيرة الذاتية ↗',
+        rights: 'عبدالرحمن العَميرة',
+        built: 'مبني بـ Astro — مستضاف على GitHub Pages',
+        switchLabel: 'English',
+      }
+    : {
+        nav: [
+          { href: '/about', label: 'About', index: '01' },
+          { href: '/portfolio', label: 'Work', index: '02' },
+          { href: '/blog', label: 'Writing', index: '03' },
+        ],
+        navLabel: 'Primary',
+        cv: 'CV ↗',
+        brand: 'Abdulrahman Alomairah',
+        footerName: 'Abdulrahman Alomairah',
+        footerTagline:
+          'Software engineer and cybersecurity enthusiast. Building secure systems, self-hosted infrastructure, and things worth writing about.',
+        location: 'Riyadh, Saudi Arabia',
+        navTitle: 'Navigate',
+        navLinks: [
+          { href: '/', label: 'Home' },
+          { href: '/about', label: 'About' },
+          { href: '/portfolio', label: 'Work' },
+          { href: '/blog', label: 'Writing' },
+        ],
+        elsewhere: 'Elsewhere',
+        github: 'GitHub ↗',
+        email: 'Email ↗',
+        resume: 'Resume ↗',
+        rights: 'Abdulrahman Alomairah',
+        built: 'Built with Astro — deployed on GitHub Pages',
+        switchLabel: 'العربية',
+      };
 
 const isActive = (href: string) => path === href || path.startsWith(`${href}/`);
-
-const tickerItems = [
-  'Software Engineer',
-  'Cybersecurity',
-  'Riyadh, Saudi Arabia',
-  'Self-Hosting',
-  'CTF & Pentesting',
-  'KFUPM ’24',
-];
+const prefix = lang === 'ar' ? '/ar' : '';
+const homeHref = lang === 'ar' ? '/ar/' : '/';
+const cvHref = '/alomairah_resume.pdf';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang} dir={dir}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#0000f2" />
+    <meta name="theme-color" content="#16171b" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
@@ -49,21 +100,32 @@ const tickerItems = [
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content="Abdulrahman Alomairah" />
+    <meta property="og:locale" content={lang === 'ar' ? 'ar_SA' : 'en_US'} />
     <meta name="twitter:card" content="summary" />
+
+    {altPath && (
+      <>
+        <link rel="alternate" hreflang="en" href={new URL(lang === 'ar' ? altPath : path, canonical)} />
+        <link rel="alternate" hreflang="ar" href={new URL(lang === 'ar' ? path : altPath, canonical)} />
+        <link
+          rel="alternate"
+          hreflang="x-default"
+          href={new URL(lang === 'ar' ? altPath : path, canonical)}
+        />
+      </>
+    )}
 
     <title>{title}</title>
   </head>
   <body>
-    <Marquee items={tickerItems} />
-
     <header class="site-header">
       <div class="container nav">
-        <a href="/" class="brand">
-          Abdulrahman Alomairah<span class="brand__dot">.</span>
+        <a href={homeHref} class="brand">
+          {t.brand}<span class="brand__dot">.</span>
         </a>
 
-        <nav class="nav__links" aria-label="Primary">
-          {nav.map((item) => (
+        <nav class="nav__links" aria-label={t.navLabel}>
+          {t.nav.map((item) => (
             <a
               href={item.href}
               class="nav__link"
@@ -72,13 +134,18 @@ const tickerItems = [
               <span class="nav__index">{item.index}</span>{item.label}
             </a>
           ))}
-          <a
-            href="/alomairah_resume.pdf"
-            class="btn"
-            target="_blank"
-            rel="noopener"
-          >
-            CV ↗
+          {altPath && (
+            <a
+              href={altPath}
+              class="lang-switch"
+              hreflang={lang === 'ar' ? 'en' : 'ar'}
+              lang={lang === 'ar' ? 'en' : 'ar'}
+            >
+              {t.switchLabel}
+            </a>
+          )}
+          <a href={cvHref} class="btn" target="_blank" rel="noopener">
+            {t.cv}
           </a>
         </nav>
       </div>
@@ -92,46 +159,39 @@ const tickerItems = [
       <div class="container">
         <div class="footer-top">
           <div>
-            <h3>Abdulrahman Alomairah</h3>
-            <p>
-              Software engineer and cybersecurity enthusiast. Building secure
-              systems, self-hosted infrastructure, and things worth writing
-              about.
-            </p>
-            <p class="mono" style="margin-top: 1rem; color: rgba(242,242,242,.5);">
-              Riyadh, Saudi Arabia
+            <h3>{t.footerName}</h3>
+            <p>{t.footerTagline}</p>
+            <p class="mono" style="margin-top: 1rem; color: rgba(236, 237, 232, 0.5);">
+              {t.location}
             </p>
           </div>
 
           <div>
-            <h3>Navigate</h3>
+            <h3>{t.navTitle}</h3>
             <div class="footer-links">
-              <a href="/">Home</a>
-              <a href="/about">About</a>
-              <a href="/portfolio">Work</a>
-              <a href="/blog">Writing</a>
+              {t.navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
             </div>
           </div>
 
           <div>
-            <h3>Elsewhere</h3>
+            <h3>{t.elsewhere}</h3>
             <div class="footer-links">
               <a href="https://github.com/a-alomairah" target="_blank" rel="noopener">
-                GitHub ↗
+                {t.github}
               </a>
-              <a href="mailto:a.alomairah9@gmail.com">Email ↗</a>
-              <a href="/alomairah_resume.pdf" target="_blank" rel="noopener">
-                Resume ↗
-              </a>
+              <a href="mailto:a.alomairah9@gmail.com">{t.email}</a>
+              <a href={cvHref} target="_blank" rel="noopener">{t.resume}</a>
             </div>
           </div>
         </div>
 
-        <span class="footer-word" aria-hidden="true">Alomairah</span>
+        <span class="footer-word" aria-hidden="true">
+          {lang === 'ar' ? 'العَميرة' : 'Alomairah'}
+        </span>
 
         <div class="footer-bottom">
-          <span>© {year} Abdulrahman Alomairah</span>
-          <span>Built with Astro — deployed on GitHub Pages</span>
+          <span>© {year} {t.rights}</span>
+          <span>{t.built}</span>
         </div>
       </div>
     </footer>

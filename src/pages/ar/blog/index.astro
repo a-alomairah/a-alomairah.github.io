@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const arMonths = [
+  'يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو',
+  'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
+];
+const formatDate = (date: Date) =>
+  `${date.getDate()} ${arMonths[date.getMonth()]} ${date.getFullYear()}`;
+---
+
+<BaseLayout
+  title="الكتابات — عبدالرحمن العَميرة"
+  description="ملاحظات عن الأمن، ولينكس، والاستضافة الذاتية — باللغة الإنجليزية."
+  lang="ar"
+  altPath="/blog/"
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="kicker">03 — كتابات</p>
+      <h1 class="page-hero__title display">الكتابات</h1>
+      <div class="page-hero__lede">
+        <p>
+          ملاحظات عن الأمن، ولينكس، والاستضافة الذاتية وأشياء كسرتها أثناء
+          التعلّم. المقالات مكتوبة بالإنجليزية حاليًا.
+        </p>
+        <p class="mono muted">{String(posts.length).padStart(2, '0')} مقالات</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    {posts.map((post, i) => (
+      <a href={`/blog/${post.id}/`} class="post-row">
+        <span class="post-row__index">{String(i + 1).padStart(2, '0')}</span>
+        <span class="post-row__date">{formatDate(post.data.date)}</span>
+        <div>
+          <h2 class="post-row__title">{post.data.title}</h2>
+          {post.data.description && (
+            <p class="post-row__desc">{post.data.description}</p>
+          )}
+          {post.data.categories && (
+            <p class="post-row__cats">{post.data.categories.join(' / ')}</p>
+          )}
+        </div>
+        <span class="post-row__arrow" aria-hidden="true">↗</span>
+      </a>
+    ))}
+  </div>
+</BaseLayout>

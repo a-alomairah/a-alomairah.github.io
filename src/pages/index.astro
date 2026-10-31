@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Emblem from '../components/Emblem.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog'))
@@ -20,8 +19,8 @@ const projects = [
     index: '02',
     title: 'Homelab',
     description:
-      'A self-hosted stack running on NixOS and Docker — services, backups, and the UPS I should have bought sooner.',
-    tech: ['NixOS', 'Docker', 'Linux', 'Self-hosting'],
+      'A self-hosted stack running on Docker — the services I depend on, plus the backups and monitoring that keep them honest.',
+    tech: ['Docker', 'Linux', 'Self-hosting'],
     href: '/portfolio/#homelab',
   },
   {
@@ -38,7 +37,7 @@ const spec = [
   { label: 'Location', value: 'Riyadh, Saudi Arabia' },
   { label: 'Focus', value: 'Software & Security' },
   { label: 'Education', value: 'KFUPM — BSc SE, 2024' },
-  { label: 'Currently', value: 'Self-hosting & CTFs' },
+  { label: 'Currently', value: 'Self-hosting' },
 ];
 
 const formatDate = (date: Date) =>
@@ -49,7 +48,10 @@ const formatDate = (date: Date) =>
   });
 ---
 
-<BaseLayout title="Abdulrahman Alomairah — Software Engineer & Cybersecurity">
+<BaseLayout
+  title="Abdulrahman Alomairah — Software Engineer & Cybersecurity"
+  altPath="/ar/"
+>
   <div class="container">
     <section class="hero">
       <div>
@@ -163,10 +165,9 @@ const formatDate = (date: Date) =>
             development, security, and Linux systems.
           </p>
           <p>
-            My background spans full-stack development, penetration testing,
-            and infrastructure. I've built an AI-assisted event platform,
-            documented CTF labs, and learned the hard way why home servers need
-            a UPS.
+            My background spans full-stack development, penetration testing, and
+            infrastructure. I've built an AI-assisted event platform, and I run
+            the self-hosted services behind everything else I use.
           </p>
           <p>
             <a href="/about" class="link">Read the full profile →</a>
@@ -180,7 +181,7 @@ const formatDate = (date: Date) =>
           </div>
           <div class="spec-table__row">
             <dt>Certifications</dt>
-            <dd>eJPTv2, CompTIA Security+, LLMs Practitioner, SOC Level 1</dd>
+            <dd>eWPT, eJPTv2, CompTIA Security+, LLMs Practitioner, SOC Level 1</dd>
           </div>
           <div class="spec-table__row">
             <dt>Toolkit</dt>
@@ -188,36 +189,11 @@ const formatDate = (date: Date) =>
           </div>
           <div class="spec-table__row">
             <dt>Interests</dt>
-            <dd>Penetration testing, CTFs, self-hosting, NixOS, AI tooling</dd>
+            <dd>Penetration testing, self-hosting, AI tooling</dd>
           </div>
         </dl>
       </div>
     </div>
   </section>
 
-  <section class="cta">
-    <Emblem class="cta__emblem" />
-    <div class="container cta__inner">
-      <div>
-        <h2 class="cta__title">Let's build<br />something.</h2>
-        <p class="cta__body">
-          Have a problem worth solving, a system worth securing, or a project
-          worth shipping? I'd like to hear about it.
-        </p>
-        <div class="cta__actions">
-          <a href="mailto:a.alomairah9@gmail.com" class="btn btn--light">
-            Email me ↗
-          </a>
-          <a
-            href="https://github.com/a-alomairah"
-            class="btn btn--ghost-light"
-            target="_blank"
-            rel="noopener"
-          >
-            GitHub ↗
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 </BaseLayout>
