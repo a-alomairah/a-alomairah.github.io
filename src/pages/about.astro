@@ -1,106 +1,223 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Terminal from '../components/Terminal.astro';
+
+const skills = [
+  { label: 'Languages', items: ['Python', 'JavaScript', 'C', 'Java', 'Bash', 'PHP', 'Haskell'] },
+  { label: 'Frameworks', items: ['Django', 'Flask', 'React', 'Flutter'] },
+  { label: 'Tools', items: ['Docker', 'Git', 'Linux', 'Metasploit', 'Wireshark', 'Splunk'] },
+  { label: 'Interests', items: ['Penetration testing', 'CTFs', 'Self-hosting', 'NixOS', 'AI / LLM integration'] },
+];
+
+const certifications = [
+  { name: 'eJPTv2', issuer: 'INE / eLearnSecurity' },
+  { name: 'CompTIA Security+', issuer: 'CompTIA' },
+  { name: 'LLMs Practitioner', issuer: null },
+  { name: 'SOC Level 1', issuer: null },
+];
 ---
 
-<BaseLayout title="./about — Abdulrahman Alomairah">
-  <h1>~/about $<span class="text-dim"> cat info.json</span></h1>
-
-  <Terminal title="cat info.json">
-    <pre class="json-output">{`{`}
-{`  "name": "Abdulrahman Alomairah",`}
-{`  "name_ar": "عبدالرحمن العَميرة",`}
-{`  "role": "Software Engineer & Cybersecurity Enthusiast",`}
-{`  "location": "Riyadh, Saudi Arabia",`}
-{`  "email": "a.alomairah9@gmail.com",`}
-{`  "github": "a-alomairah"`}
-{`}`}</pre>
-  </Terminal>
-
-  <section class="stats mt-3">
-    <h2 class="text-green">// education</h2>
-    <div class="stat-row">
-      <span class="text-dim">university</span>
-      <span>King Fahd University of Petroleum and Minerals (KFUPM)</span>
-    </div>
-    <div class="stat-row">
-      <span class="text-dim">degree</span>
-      <span>BSc Software Engineering (2019 – 2024)</span>
+<BaseLayout title="About — Abdulrahman Alomairah">
+  <section class="page-hero">
+    <div class="container">
+      <p class="kicker">01 — About</p>
+      <h1 class="page-hero__title display">About</h1>
+      <div class="page-hero__lede">
+        <p>
+          Software engineer, security enthusiast, and the person who volunteers
+          to fix the home server.
+        </p>
+        <p class="mono muted">Riyadh, SA — KFUPM ’24</p>
+      </div>
     </div>
   </section>
 
-  <section class="stats mt-3">
-    <h2 class="text-green">// certifications</h2>
-    <div class="stat-row">
-      <span class="text-dim">cert_0</span>
-      <span>eJPTv2 — INE / eLearnSecurity</span>
-    </div>
-    <div class="stat-row">
-      <span class="text-dim">cert_1</span>
-      <span>CompTIA Security+</span>
-    </div>
-    <div class="stat-row">
-      <span class="text-dim">cert_2</span>
-      <span>LLMs Practitioner</span>
-    </div>
-    <div class="stat-row">
-      <span class="text-dim">cert_3</span>
-      <span>SOC Level 1</span>
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-copy">
+          <p class="lede">
+            I'm Abdulrahman Alomairah, a software engineer based in Riyadh,
+            Saudi Arabia. I graduated from King Fahd University of Petroleum and
+            Minerals in 2024 with a BSc in Software Engineering.
+          </p>
+          <p>
+            My work sits at the intersection of software engineering and
+            cybersecurity. I like building systems end to end — the database,
+            the API, the mobile client, the container it ships in, and the
+            hardening that keeps it standing.
+          </p>
+          <p>
+            Outside of work I spend time on penetration testing labs, CTFs, and
+            a self-hosted homelab running NixOS. I write about the things I
+            break and fix along the way.
+          </p>
+          <p>
+            I care about software that is understandable, infrastructure that is
+            reproducible, and security that is designed in rather than bolted
+            on.
+          </p>
+        </div>
+
+        <figure class="hero__portrait">
+          <img
+            src="/images/about/profile.png"
+            alt="Portrait of Abdulrahman Alomairah"
+            width="654"
+            height="540"
+            loading="lazy"
+          />
+          <figcaption>
+            <span>Fig. 01 — Alomairah</span>
+            <span>Riyadh, SA</span>
+          </figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
-  <section class="stats mt-3">
-    <h2 class="text-green">// skills</h2>
-    <div class="stat-row">
-      <span class="text-dim">languages</span>
-      <span>Python, JavaScript, C, Java, Bash, PHP, Haskell</span>
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="section-head__index">02</span>Education</h2>
+      </div>
+      <dl class="spec-table" style="margin-top: 1.5rem;">
+        <div class="spec-table__row">
+          <dt>University</dt>
+          <dd>King Fahd University of Petroleum and Minerals (KFUPM)</dd>
+        </div>
+        <div class="spec-table__row">
+          <dt>Degree</dt>
+          <dd>BSc Software Engineering — 2019–2024</dd>
+        </div>
+        <div class="spec-table__row">
+          <dt>Location</dt>
+          <dd>Dhahran, Saudi Arabia</dd>
+        </div>
+      </dl>
     </div>
-    <div class="stat-row">
-      <span class="text-dim">frameworks</span>
-      <span>Django, Flask, React, Flutter</span>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="section-head__index">03</span>Certifications</h2>
+      </div>
+      <div style="margin-top: 1.5rem;">
+        {certifications.map((cert, i) => (
+          <div class="cert-row">
+            <span class="cert-row__index">{String(i + 1).padStart(2, '0')}</span>
+            <span class="cert-row__name">{cert.name}</span>
+            {cert.issuer && (
+              <span class="cert-row__issuer mono muted">{cert.issuer}</span>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
-    <div class="stat-row">
-      <span class="text-dim">tools</span>
-      <span>Docker, Git, Linux, Metasploit, Wireshark, Splunk</span>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="section-head__index">04</span>Toolkit</h2>
+      </div>
+      <div class="skill-grid">
+        {skills.map((group) => (
+          <div class="skill-group">
+            <h3 class="kicker">{group.label}</h3>
+            <ul class="tags">
+              {group.items.map((item) => (
+                <li class="tag">{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </div>
-    <div class="stat-row">
-      <span class="text-dim">interests</span>
-      <span>Penetration Testing, CTFs, Self-Hosting, NixOS</span>
+  </section>
+
+  <section class="cta">
+    <div class="container cta__inner">
+      <div>
+        <h2 class="cta__title">Say hello.</h2>
+        <p class="cta__body">
+          The fastest way to reach me is email. I'm also on GitHub.
+        </p>
+        <div class="cta__actions">
+          <a href="mailto:a.alomairah9@gmail.com" class="btn btn--light">
+            Email me ↗
+          </a>
+          <a
+            href="https://github.com/a-alomairah"
+            class="btn btn--ghost-light"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub ↗
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .json-output {
-    background: none !important;
-    border: none !important;
-    color: var(--grey);
-    padding: 0 !important;
-    margin: 0 !important;
-    font-family: var(--font);
-    line-height: 1.8;
+  .cert-row {
+    display: grid;
+    grid-template-columns: 3.5rem 1fr auto;
+    gap: 1.5rem;
+    align-items: baseline;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
   }
 
-  .stats {
-    margin-bottom: 1.5rem;
+  .cert-row__index {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--blue);
   }
 
-  .stat-row {
-    display: flex;
+  .cert-row__name {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .cert-row__issuer {
+    text-align: right;
+  }
+
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    padding: 0.35rem 0;
-    border-bottom: 1px solid #111;
+    margin-top: 1.5rem;
   }
 
-  .stat-row span:first-child {
-    min-width: 120px;
-    flex-shrink: 0;
+  .skill-group {
+    border-top: 1px solid var(--ink);
+    padding-top: 1rem;
   }
 
-  @media (max-width: 600px) {
-    .stat-row {
-      flex-direction: column;
-      gap: 0.25rem;
+  .skill-group .tags {
+    margin-top: 0.8rem;
+  }
+
+  @media (max-width: 720px) {
+    .cert-row {
+      grid-template-columns: 2.2rem 1fr;
+    }
+
+    .cert-row__issuer {
+      grid-column: 2;
+      text-align: left;
+    }
+
+    .skill-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

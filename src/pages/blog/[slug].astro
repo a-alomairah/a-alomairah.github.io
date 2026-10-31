@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Terminal from '../../components/Terminal.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -20,68 +19,46 @@ const dateStr = post.data.date.toLocaleDateString('en-US', {
 });
 ---
 
-<BaseLayout title={`${post.data.title} — Abdulrahman Alomairah`}>
+<BaseLayout
+  title={`${post.data.title} — Abdulrahman Alomairah`}
+  description={post.data.description}
+>
   <article>
-    <Terminal title={`cat "${post.data.title.toLowerCase().replace(/\s+/g, '-')}.md"`}>
-      <header class="post-header">
-        <h1>{post.data.title}</h1>
-        <p class="text-dim">{dateStr}</p>
-        {post.data.categories && (
-          <div class="mt-1">
-            {post.data.categories.map((cat: string) => (
-              <span class="badge badge-purple">{cat}</span>
-            ))}
-          </div>
+    <header class="article-head">
+      <div class="container">
+        <div class="article-head__meta">
+          <span>{dateStr}</span>
+          {post.data.categories && (
+            <span>{post.data.categories.join(' / ')}</span>
+          )}
+          <span>By Abdulrahman Alomairah</span>
+        </div>
+        <h1 class="article-head__title display">{post.data.title}</h1>
+        {post.data.description && (
+          <p class="article-head__desc serif">{post.data.description}</p>
         )}
-      </header>
-    </Terminal>
+      </div>
+    </header>
 
-    <div class="post-content mt-2">
-      <Content />
+    <div class="container article-body">
+      <aside class="article-aside">
+        <span>Filed under</span>
+        {post.data.categories && (
+          <ul class="tags">
+            {post.data.categories.map((cat: string) => (
+              <li class="tag">{cat}</li>
+            ))}
+          </ul>
+        )}
+      </aside>
+
+      <div class="prose">
+        <Content />
+      </div>
     </div>
 
-    <p class="mt-3"><a href="/blog">&larr; cd ../blog</a></p>
+    <div class="container" style="padding-bottom: 4rem;">
+      <a href="/blog" class="link mono">← Back to writing</a>
+    </div>
   </article>
 </BaseLayout>
-
-<style>
-  .post-header h1 {
-    font-size: 1.4rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .post-content {
-    line-height: 1.8;
-  }
-
-  .post-content :global(p) {
-    margin-bottom: 1rem;
-  }
-
-  .post-content :global(h2) {
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .post-content :global(h3) {
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .post-content :global(ul),
-  .post-content :global(ol) {
-    margin-left: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .post-content :global(li) {
-    margin-bottom: 0.35rem;
-  }
-
-  .post-content :global(blockquote) {
-    border-left: 3px solid var(--purple);
-    padding-left: 1rem;
-    color: var(--dim);
-    margin: 1rem 0;
-  }
-</style>

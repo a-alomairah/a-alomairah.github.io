@@ -3,80 +3,142 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const projects = [
   {
+    id: 'eventscape',
+    index: '01',
     title: 'EventScape',
-    description: 'Senior Software Engineering project. A comprehensive event management platform with AI-powered features, SMS notifications via Twilio, and a Flutter mobile app.',
+    description:
+      'A comprehensive event management platform with AI-powered features, SMS notifications via Twilio, and a Flutter mobile app.',
+    scope:
+      'Built as the senior software engineering project at KFUPM, covering the backend, mobile client, and deployment.',
     tech: ['Django', 'Flutter', 'Docker', 'LangChain', 'OpenAI', 'Twilio'],
-    logos: {
-      Django: '/logos/django.svg',
-      Flutter: '/logos/flutter.svg',
-      Docker: '/logos/docker.svg',
-      LangChain: '/logos/langchain.svg',
-      OpenAI: '/logos/openai.svg',
-      Twilio: '/logos/twilio.svg',
-    },
+    context: 'Senior project — KFUPM, 2024',
+    link: null,
+    linkLabel: null,
+  },
+  {
+    id: 'homelab',
+    index: '02',
+    title: 'Homelab',
+    description:
+      'A self-hosted environment for the services I depend on, running on NixOS with Docker where it makes sense. Backups, uptime, and a UPS after learning that lesson the hard way.',
+    scope:
+      'A long-running personal project in reproducible infrastructure, service operations, and failure recovery.',
+    tech: ['NixOS', 'Docker', 'Linux', 'Self-hosting'],
+    context: 'Personal infrastructure',
+    link: '/blog/ups-for-home-servers/',
+    linkLabel: 'Read the UPS post ↗',
+  },
+  {
+    id: 'website',
+    index: '03',
+    title: 'This Site',
+    description:
+      'The site you are reading: an Astro + MDX build with a custom design system, deployed automatically to GitHub Pages through GitHub Actions.',
+    scope:
+      'Design, implementation, content pipeline, and deployment — no client-side framework, no tracking.',
+    tech: ['Astro', 'MDX', 'TypeScript', 'GitHub Actions'],
+    context: 'Personal site — 2026',
+    link: 'https://github.com/a-alomairah/a-alomairah.github.io',
+    linkLabel: 'View source ↗',
   },
 ];
 ---
 
-<BaseLayout title="./portfolio — Abdulrahman Alomairah">
-  <h1>~/portfolio $<span class="text-dim"> ls -la</span></h1>
-
-  <div class="projects mt-2">
-    {projects.map((project) => (
-      <div class="project-card">
-        <h2 class="glitch">{project.title}</h2>
-        <p class="mt-1">{project.description}</p>
-        <div class="tech-stack mt-2">
-          {project.tech.map((t) => (
-            <span class="badge badge-green">
-              {project.logos[t] && (
-                <img src={project.logos[t]} alt={t} class="tech-logo" />
-              )}
-              {t}
-            </span>
-          ))}
-        </div>
+<BaseLayout title="Work — Abdulrahman Alomairah">
+  <section class="page-hero">
+    <div class="container">
+      <p class="kicker">02 — Selected Work</p>
+      <h1 class="page-hero__title display">Work</h1>
+      <div class="page-hero__lede">
+        <p>
+          A few things I've built, run, or broken. Everything else lives on
+          GitHub.
+        </p>
+        <p class="mono muted">01—03</p>
       </div>
+    </div>
+  </section>
+
+  <div class="container">
+    {projects.map((project) => (
+      <article class="project" id={project.id}>
+        <div class="project__top">
+          <span class="project__index">{project.index}</span>
+          <div>
+            <h2 class="project__title">{project.title}</h2>
+
+            <div class="project__body">
+              <div>
+                <p class="project__desc">{project.description}</p>
+                <p class="project__desc" style="margin-top: 1rem;">
+                  {project.scope}
+                </p>
+                {project.link && (
+                  <p style="margin-top: 1.25rem;">
+                    <a
+                      href={project.link}
+                      class="link mono"
+                      target={project.link.startsWith('http') ? '_blank' : undefined}
+                      rel={project.link.startsWith('http') ? 'noopener' : undefined}
+                    >
+                      {project.linkLabel}
+                    </a>
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <div class="project__meta">
+                  <h3 class="kicker">Stack</h3>
+                  <ul class="tags">
+                    {project.tech.map((tech) => (
+                      <li class="tag">{tech}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div class="project__meta">
+                  <h3 class="kicker">Context</h3>
+                  <p class="project__desc">{project.context}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
     ))}
   </div>
+
+  <section class="cta">
+    <div class="container cta__inner">
+      <div>
+        <h2 class="cta__title">More on GitHub.</h2>
+        <p class="cta__body">
+          Experiments, coursework, and the projects that are still too
+          unfinished for a case study.
+        </p>
+        <div class="cta__actions">
+          <a
+            href="https://github.com/a-alomairah"
+            class="btn btn--light"
+            target="_blank"
+            rel="noopener"
+          >
+            github.com/a-alomairah ↗
+          </a>
+          <a href="mailto:a.alomairah9@gmail.com" class="btn btn--ghost-light">
+            Email me
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
-  .projects {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .project-card {
-    background: #0a0a0a;
-    border: 1px solid #222;
-    border-radius: 8px;
-    padding: 1.5rem;
-    transition: border-color 0.3s;
-  }
-
-  .project-card:hover {
-    border-color: var(--purple);
-  }
-
-  .project-card h2 {
-    font-size: 1.2rem;
-    cursor: default;
-  }
-
-  .tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .tech-logo {
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-    margin-right: 4px;
-    border: none;
-    border-radius: 0;
+  .project__desc {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+    max-width: 62ch;
   }
 </style>

@@ -1,0 +1,62 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+const cx = 300;
+const cy = 300;
+
+const rays = Array.from({ length: 72 }, (_, i) => {
+  const angle = (i / 72) * Math.PI * 2 - Math.PI / 2;
+  const inner = i % 3 === 0 ? 112 : 148;
+  const outer = i % 6 === 0 ? 282 : 270;
+  return {
+    x1: cx + Math.cos(angle) * inner,
+    y1: cy + Math.sin(angle) * inner,
+    x2: cx + Math.cos(angle) * outer,
+    y2: cy + Math.sin(angle) * outer,
+    width: i % 6 === 0 ? 1.5 : 0.7,
+  };
+});
+
+const ticks = Array.from({ length: 36 }, (_, i) => {
+  const angle = (i / 36) * Math.PI * 2;
+  return {
+    x1: cx + Math.cos(angle) * 296,
+    y1: cy + Math.sin(angle) * 296,
+    x2: cx + Math.cos(angle) * 306,
+    y2: cy + Math.sin(angle) * 306,
+  };
+});
+---
+
+<svg
+  class={className}
+  viewBox="0 0 600 600"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  aria-hidden="true"
+  focusable="false"
+>
+  <circle cx={cx} cy={cy} r="286" stroke-width="1" />
+  <circle cx={cx} cy={cy} r="296" stroke-width="0.6" stroke-dasharray="2 6" />
+  <circle cx={cx} cy={cy} r="132" stroke-width="1" />
+  <circle cx={cx} cy={cy} r="104" stroke-width="0.7" stroke-dasharray="1 4" />
+
+  {rays.map((ray) => (
+    <line x1={ray.x1} y1={ray.y1} x2={ray.x2} y2={ray.y2} stroke-width={ray.width} />
+  ))}
+
+  {ticks.map((tick) => (
+    <line x1={tick.x1} y1={tick.y1} x2={tick.x2} y2={tick.y2} stroke-width="0.6" />
+  ))}
+
+  <path d="M300 208 L356 300 L300 392 L244 300 Z" stroke-width="1.6" />
+  <path d="M300 236 L332 300 L300 364 L268 300 Z" stroke-width="0.8" />
+  <line x1="300" y1="208" x2="300" y2="392" stroke-width="0.6" />
+  <line x1="244" y1="300" x2="356" y2="300" stroke-width="0.6" />
+  <circle cx="300" cy="300" r="7" stroke-width="1.2" />
+  <circle cx="300" cy="300" r="2" fill="currentColor" stroke="none" />
+</svg>

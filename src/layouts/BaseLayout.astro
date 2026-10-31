@@ -1,12 +1,37 @@
 ---
 import '../styles/global.css';
+import Marquee from '../components/Marquee.astro';
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = 'Abdulrahman Alomairah — Software Engineer & Cybersecurity Enthusiast' } = Astro.props;
+const {
+  title,
+  description = 'Abdulrahman Alomairah — software engineer and cybersecurity enthusiast based in Riyadh, Saudi Arabia.',
+} = Astro.props;
+
+const path = Astro.url.pathname;
+const canonical = new URL(path, Astro.site ?? 'https://a-alomairah.github.io');
+const year = new Date().getFullYear();
+
+const nav = [
+  { href: '/about', label: 'About', index: '01' },
+  { href: '/portfolio', label: 'Work', index: '02' },
+  { href: '/blog', label: 'Writing', index: '03' },
+];
+
+const isActive = (href: string) => path === href || path.startsWith(`${href}/`);
+
+const tickerItems = [
+  'Software Engineer',
+  'Cybersecurity',
+  'Riyadh, Saudi Arabia',
+  'Self-Hosting',
+  'CTF & Pentesting',
+  'KFUPM ’24',
+];
 ---
 
 <!doctype html>
@@ -15,85 +40,100 @@ const { title, description = 'Abdulrahman Alomairah — Software Engineer & Cybe
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#0000f2" />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Abdulrahman Alomairah" />
+    <meta name="twitter:card" content="summary" />
+
     <title>{title}</title>
   </head>
   <body>
-    <nav class="nav">
-      <div class="container nav-inner">
-        <a href="/" class="nav-prompt">a@alomairah ~/$</a>
-        <div class="nav-links">
-          <a href="/about">./about</a>
-          <a href="/blog">./blog</a>
-          <a href="/portfolio">./portfolio</a>
-          <a href="/alomairah_resume.pdf" target="_blank">./resume</a>
-        </div>
-      </div>
-    </nav>
+    <Marquee items={tickerItems} />
 
-    <main class="container main-content">
+    <header class="site-header">
+      <div class="container nav">
+        <a href="/" class="brand">
+          Abdulrahman Alomairah<span class="brand__dot">.</span>
+        </a>
+
+        <nav class="nav__links" aria-label="Primary">
+          {nav.map((item) => (
+            <a
+              href={item.href}
+              class="nav__link"
+              aria-current={isActive(item.href) ? 'page' : undefined}
+            >
+              <span class="nav__index">{item.index}</span>{item.label}
+            </a>
+          ))}
+          <a
+            href="/alomairah_resume.pdf"
+            class="btn"
+            target="_blank"
+            rel="noopener"
+          >
+            CV ↗
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
       <slot />
     </main>
 
-    <footer class="footer">
+    <footer class="site-footer">
       <div class="container">
-        <p class="text-dim">&copy; {new Date().getFullYear()} Abdulrahman Alomairah. All rights reserved.</p>
+        <div class="footer-top">
+          <div>
+            <h3>Abdulrahman Alomairah</h3>
+            <p>
+              Software engineer and cybersecurity enthusiast. Building secure
+              systems, self-hosted infrastructure, and things worth writing
+              about.
+            </p>
+            <p class="mono" style="margin-top: 1rem; color: rgba(242,242,242,.5);">
+              Riyadh, Saudi Arabia
+            </p>
+          </div>
+
+          <div>
+            <h3>Navigate</h3>
+            <div class="footer-links">
+              <a href="/">Home</a>
+              <a href="/about">About</a>
+              <a href="/portfolio">Work</a>
+              <a href="/blog">Writing</a>
+            </div>
+          </div>
+
+          <div>
+            <h3>Elsewhere</h3>
+            <div class="footer-links">
+              <a href="https://github.com/a-alomairah" target="_blank" rel="noopener">
+                GitHub ↗
+              </a>
+              <a href="mailto:a.alomairah9@gmail.com">Email ↗</a>
+              <a href="/alomairah_resume.pdf" target="_blank" rel="noopener">
+                Resume ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <span class="footer-word" aria-hidden="true">Alomairah</span>
+
+        <div class="footer-bottom">
+          <span>© {year} Abdulrahman Alomairah</span>
+          <span>Built with Astro — deployed on GitHub Pages</span>
+        </div>
       </div>
     </footer>
   </body>
 </html>
-
-<style>
-  .nav {
-    border-bottom: 1px solid #222;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    background: rgba(7, 7, 7, 0.95);
-    backdrop-filter: blur(8px);
-    z-index: 100;
-  }
-
-  .nav-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  .nav-prompt {
-    color: var(--green);
-    font-size: 1rem;
-    white-space: nowrap;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-
-  .nav-links a {
-    color: var(--dim);
-    font-size: 0.9rem;
-  }
-
-  .nav-links a:hover {
-    color: var(--green);
-    text-shadow: 0 0 8px var(--green);
-  }
-
-  .main-content {
-    padding-top: 2rem;
-    padding-bottom: 4rem;
-    min-height: calc(100vh - 140px);
-  }
-
-  .footer {
-    border-top: 1px solid #222;
-    padding: 1.5rem 0;
-    text-align: center;
-    font-size: 0.8rem;
-  }
-</style>

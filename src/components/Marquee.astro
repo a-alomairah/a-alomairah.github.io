@@ -1,0 +1,23 @@
+---
+interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props;
+const sequence = [...items, ...items];
+---
+
+<div class="ticker">
+  <div class="marquee">
+    {[0, 1].map((group) => (
+      <div class="marquee__group" aria-hidden={group === 1 ? 'true' : undefined}>
+        {sequence.map((item) => (
+          <span class="marquee__item">
+            {item}
+            <span class="marquee__star" aria-hidden="true">✦</span>
+          </span>
+        ))}
+      </div>
+    ))}
+  </div>
+</div>

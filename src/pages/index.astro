@@ -1,92 +1,223 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Terminal from '../components/Terminal.astro';
+import Emblem from '../components/Emblem.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 5);
+  .slice(0, 4);
+
+const projects = [
+  {
+    index: '01',
+    title: 'EventScape',
+    description:
+      'Senior software engineering project: an event management platform with AI-assisted features, SMS notifications, and a Flutter mobile app.',
+    tech: ['Django', 'Flutter', 'Docker', 'LangChain', 'OpenAI', 'Twilio'],
+    href: '/portfolio/#eventscape',
+  },
+  {
+    index: '02',
+    title: 'Homelab',
+    description:
+      'A self-hosted stack running on NixOS and Docker — services, backups, and the UPS I should have bought sooner.',
+    tech: ['NixOS', 'Docker', 'Linux', 'Self-hosting'],
+    href: '/portfolio/#homelab',
+  },
+  {
+    index: '03',
+    title: 'This Site',
+    description:
+      'An Astro portfolio and writing setup, built with MDX and deployed to GitHub Pages through Actions.',
+    tech: ['Astro', 'MDX', 'GitHub Actions', 'GitHub Pages'],
+    href: '/portfolio/#website',
+  },
+];
+
+const spec = [
+  { label: 'Location', value: 'Riyadh, Saudi Arabia' },
+  { label: 'Focus', value: 'Software & Security' },
+  { label: 'Education', value: 'KFUPM — BSc SE, 2024' },
+  { label: 'Currently', value: 'Self-hosting & CTFs' },
+];
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+  });
 ---
 
-<BaseLayout title="Abdulrahman Alomairah">
-  <header class="hero">
-    <p class="prompt">a@alomairah ~/$ <span class="cursor">_</span></p>
-  </header>
+<BaseLayout title="Abdulrahman Alomairah — Software Engineer & Cybersecurity">
+  <div class="container">
+    <section class="hero">
+      <div>
+        <p class="kicker hero__kicker">Portfolio / 2026</p>
 
-  <Terminal title="whoami">
-    <p class="text-green">Abdulrahman Alomairah</p>
-    <p class="text-grey">(عبدالرحمن العَميرة)</p>
-    <p class="mt-1">Software Engineer & Cybersecurity Enthusiast</p>
-    <p>BSc Software Engineering — KFUPM (2024)</p>
-    <p>Based in Riyadh, Saudi Arabia</p>
-    <p class="mt-1">
-      <span class="text-dim">email:</span> <a href="mailto:a.alomairah9@gmail.com">a.alomairah9@gmail.com</a>
-    </p>
-    <p>
-      <span class="text-dim">github:</span> <a href="https://github.com/a-alomairah" target="_blank">a-alomairah</a>
-    </p>
-  </Terminal>
+        <h1 class="hero__title display">
+          <span>Abdulrahman</span>
+          <span class="line-2">Alomairah</span>
+        </h1>
 
-  <Terminal title="cat interests.txt">
-    <p>- Penetration Testing & CTFs</p>
-    <p>- Self-Hosting & Home Labs</p>
-    <p>- Linux (NixOS enthusiast)</p>
-    <p>- Software Engineering & Web Development</p>
-    <p>- AI / LLM Integration</p>
-  </Terminal>
+        <p class="hero__copy">
+          Software engineer and cybersecurity enthusiast. I build secure
+          systems, useful software, and self-hosted infrastructure that refuses
+          to stay offline.
+        </p>
 
-  <section class="mt-3">
-    <h2>~/recent-posts $<span class="text-dim"> ls -lt | head -5</span></h2>
-    <div class="post-list mt-2">
-      {posts.map((post) => {
-        const d = post.data.date;
-        const dateStr = d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: '2-digit' });
-        return (
-          <a href={`/blog/${post.id}/`} class="post-row">
-            <span class="text-dim">{dateStr}</span>
-            <span class="text-green">{post.data.title}</span>
-          </a>
-        );
-      })}
+        <div class="hero__actions">
+          <a href="/portfolio" class="btn btn--primary">Selected work ↗</a>
+          <a href="mailto:a.alomairah9@gmail.com" class="btn">Email me</a>
+        </div>
+      </div>
+
+      <figure class="hero__portrait">
+        <img
+          src="/images/about/profile.png"
+          alt="Portrait of Abdulrahman Alomairah"
+          width="654"
+          height="540"
+          loading="eager"
+        />
+        <figcaption>
+          <span>Fig. 01 — Alomairah</span>
+          <span>Riyadh, SA</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <div class="spec">
+      {spec.map((item) => (
+        <div class="spec__cell">
+          <span class="spec__label">{item.label}</span>
+          <span class="spec__value">{item.value}</span>
+        </div>
+      ))}
     </div>
-    <p class="mt-2"><a href="/blog">cd ./blog &rarr;</a></p>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="section-head__index">01</span>Selected Work</h2>
+        <a href="/portfolio" class="section-head__link">All work ↗</a>
+      </div>
+
+      {projects.map((project) => (
+        <a href={project.href} class="work-row">
+          <span class="work-row__index">{project.index}</span>
+          <div>
+            <h3 class="work-row__title">{project.title}</h3>
+            <p class="work-row__desc">{project.description}</p>
+            <ul class="tags">
+              {project.tech.map((tech) => (
+                <li class="tag">{tech}</li>
+              ))}
+            </ul>
+          </div>
+          <span class="work-row__arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="section-head__index">02</span>Writing</h2>
+        <a href="/blog" class="section-head__link">All writing ↗</a>
+      </div>
+
+      {posts.map((post, i) => (
+        <a href={`/blog/${post.id}/`} class="post-row">
+          <span class="post-row__index">{String(i + 1).padStart(2, '0')}</span>
+          <span class="post-row__date">{formatDate(post.data.date)}</span>
+          <div>
+            <h3 class="post-row__title">{post.data.title}</h3>
+            {post.data.description && (
+              <p class="post-row__desc">{post.data.description}</p>
+            )}
+            {post.data.categories && (
+              <p class="post-row__cats">{post.data.categories.join(' / ')}</p>
+            )}
+          </div>
+          <span class="post-row__arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2><span class="section-head__index">03</span>Profile</h2>
+        <a href="/about" class="section-head__link">More about me ↗</a>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-copy">
+          <p class="lede">
+            I graduated from KFUPM in 2024 with a BSc in Software Engineering.
+            Since then I've been building software at the intersection of web
+            development, security, and Linux systems.
+          </p>
+          <p>
+            My background spans full-stack development, penetration testing,
+            and infrastructure. I've built an AI-assisted event platform,
+            documented CTF labs, and learned the hard way why home servers need
+            a UPS.
+          </p>
+          <p>
+            <a href="/about" class="link">Read the full profile →</a>
+          </p>
+        </div>
+
+        <dl class="spec-table">
+          <div class="spec-table__row">
+            <dt>Education</dt>
+            <dd>King Fahd University of Petroleum and Minerals — BSc Software Engineering, 2019–2024</dd>
+          </div>
+          <div class="spec-table__row">
+            <dt>Certifications</dt>
+            <dd>eJPTv2, CompTIA Security+, LLMs Practitioner, SOC Level 1</dd>
+          </div>
+          <div class="spec-table__row">
+            <dt>Toolkit</dt>
+            <dd>Python, JavaScript, Django, Flask, React, Flutter, Docker, Linux</dd>
+          </div>
+          <div class="spec-table__row">
+            <dt>Interests</dt>
+            <dd>Penetration testing, CTFs, self-hosting, NixOS, AI tooling</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <Emblem class="cta__emblem" />
+    <div class="container cta__inner">
+      <div>
+        <h2 class="cta__title">Let's build<br />something.</h2>
+        <p class="cta__body">
+          Have a problem worth solving, a system worth securing, or a project
+          worth shipping? I'd like to hear about it.
+        </p>
+        <div class="cta__actions">
+          <a href="mailto:a.alomairah9@gmail.com" class="btn btn--light">
+            Email me ↗
+          </a>
+          <a
+            href="https://github.com/a-alomairah"
+            class="btn btn--ghost-light"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub ↗
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 </BaseLayout>
-
-<style>
-  .hero {
-    margin-bottom: 1.5rem;
-  }
-
-  .prompt {
-    font-size: 1.5rem;
-    color: var(--green);
-  }
-
-  .post-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .post-row {
-    display: flex;
-    gap: 1.5rem;
-    padding: 0.3rem 0;
-    text-decoration: none;
-    border-bottom: 1px solid #111;
-  }
-
-  .post-row:hover {
-    background: #0d0d0d;
-  }
-
-  .post-row span:last-child {
-    color: var(--green);
-  }
-
-  .post-row:hover span:last-child {
-    color: var(--purple);
-    text-shadow: 0 0 8px var(--purple);
-  }
-</style>
